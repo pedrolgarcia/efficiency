@@ -1,0 +1,24 @@
+<ion-grid>
+	<ion-row justify-content-center>
+		<ion-col align-self-center>
+			<div text-center>
+				<h1 class="logo">Efficiency</h1>
+			</div>
+			<form padding [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+				<ion-item>
+          <ion-icon name="person"></ion-icon>
+					<ion-input type="text" formControlName="user" placeholder="Usuário"></ion-input>
+				</ion-item>
+
+				<ion-item>
+          <ion-icon name="lock"></ion-icon>
+					<ion-input type="password" formControlName="password" placeholder="Senha"></ion-input>
+        </ion-item>
+        
+        <div padding>
+          <ion-button type="submit" size="large" expand="block" color="light" [disabled]="loginForm.invalid"><ion-icon name="arrow-forward" style="color: #3171e0;"></ion-icon></ion-button>
+        </div>
+      </form>
+		</ion-col>
+	</ion-row>
+</ion-grid>
