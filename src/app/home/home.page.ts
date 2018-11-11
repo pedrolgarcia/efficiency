@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  projects = [1, 2, 3];
+  tasks = [1, 2, 3, 4];
+
 }

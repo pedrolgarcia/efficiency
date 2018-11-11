@@ -1,1 +1,31 @@
+.project-card-content {
+    background-color: #f4f5f8;
+    color: #000;
+    font-size: 17px;
+    padding-top: 8px;
+    border-radius: 10px;
+}
 
+.view-project-btn {
+    border: 1px solid #fff;
+    border-radius: 5px;
+    color: #fff;
+    --color-activated: #fff;
+}
+
+ion-card-header {
+    padding-bottom: 0;
+}
+
+ion-card {
+    border-radius: 10px;
+}
+
+.page-title {
+    background-color: #3880ff;
+    color: #fff;
+    margin: 16px 10px 10px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    border-radius: 10px;
+}

@@ -10,9 +10,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Tela Inicial', url: '/home', icon: 'home' },
-    { title: 'List', url: '/list', icon: 'list' },
-    { title: 'Login', url: '/login', icon: 'person' }
+    { title: 'Meu feed', url: '/home', icon: 'home' },
+    { title: 'Cadastrar Tarefa', url: '/list', icon: 'create' },
+    { title: 'Cadastrar Projeto', url: '/list', icon: 'person' }
   ];
 
   constructor(

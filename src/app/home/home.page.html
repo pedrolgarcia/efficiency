@@ -1,16 +1,33 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-    <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
+<app-header></app-header>
 
-<ion-content padding>
-  The world is your.
-  <p>If you get lost, the
-    <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+<ion-content padding-bottom padding-horizontal>
+  <ion-title class="page-title" padding text-center>Meu Feed</ion-title>
+
+  <ion-card color="primary" *ngFor="let project of projects" margin-top>
+    <ion-card-header>
+      <ion-row align-items-center>
+        <ion-col size="9">
+          <ion-card-title>Nome do projeto</ion-card-title>
+          <ion-card-subtitle>Subtítulo</ion-card-subtitle>
+        </ion-col>
+        <ion-col size="3" text-end>
+          <ion-button class="view-project-btn" fill="outline" size="small">Ver</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+  
+    <ion-card-content class="project-card-content" padding margin *ngFor="let task of tasks">
+      <ion-row>
+        <ion-col size="6" no-padding>
+          <ion-label><ion-icon name="create" color="primary"></ion-icon> Tarefa</ion-label>
+        </ion-col>
+        <ion-col size="6" no-padding>
+          <ion-label><ion-icon name="calendar" color="primary"></ion-icon> 12/12/2018</ion-label>            
+        </ion-col>
+      </ion-row>
+      <ion-textarea disabled readonly rows="4" text-justify value="Lorem ipsum viverra porta aliquam fringilla ligula nam semper, lacinia rhoncus eleifend pharetra volutpat sagittis tempus, condimentum inceptos vestibulum quisque scelerisque habitant curabitur. maecenas nostra per ad id curabitur">
+  </ion-textarea>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
