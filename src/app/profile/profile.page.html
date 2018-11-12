@@ -1,0 +1,53 @@
+  <ion-content padding-horizontal padding-bottom>
+      <ion-row align-items-center padding style="padding-top: 50px;">
+          <ion-col size="3" text-center>
+            <ion-buttons>
+              <ion-back-button color="primary"></ion-back-button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col size="6" text-center>
+            <ion-avatar class="profile-avatar">
+              <img [src]="profile.avatar" alt="Usuário">
+            </ion-avatar>
+          </ion-col>
+          <ion-col size="3">
+            <ion-buttons>
+              <ion-menu-button color="primary"></ion-menu-button>
+            </ion-buttons>
+          </ion-col>
+        </ion-row>
+    <ion-card color="primary">
+      <ion-card-header padding-top padding-horizonal no-padding>
+        <ion-row align-items-center>
+          <ion-col size="12" text-center>
+            <ion-card-title class="username">{{ profile.nome}}</ion-card-title>
+          </ion-col>
+        </ion-row>
+      </ion-card-header>
+  
+      <ion-card-content class="user-info">
+        <ion-row>
+          <ion-col size="12" text-center>
+            <ion-label no-margin>Projetos - 36</ion-label>
+          </ion-col>
+          <ion-col size="12" text-center>
+            <ion-label no-margin>Tarefas - 230</ion-label>
+          </ion-col>
+          <ion-col size="12" text-center>
+            <ion-label no-margin>Ranking - 8º</ion-label>
+          </ion-col>
+          <ion-col size="12" text-center margin-top>
+            <ion-label no-margin>Erros por tarefa</ion-label>
+            <ion-button color="danger" fill="outline" no-margin>4</ion-button>
+          </ion-col>
+          <ion-col size="12" text-center margin-top>
+            <ion-label no-margin>Tarefas atrasadas</ion-label>
+            <ion-button color="warning" fill="outline" no-margin>4</ion-button>
+          </ion-col>
+          <ion-col size="12" text-center margin-top>
+              <ion-button color="light" fill="outline" no-margin [routerLink]="['/profile-edit']"><ion-icon name="create"></ion-icon>Editar perfil</ion-button>
+            </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

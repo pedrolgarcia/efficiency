@@ -11,8 +11,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     { title: 'Meu feed', url: '/home', icon: 'home' },
-    { title: 'Cadastrar Tarefa', url: '/list', icon: 'create' },
-    { title: 'Cadastrar Projeto', url: '/list', icon: 'person' }
   ];
 
   constructor(

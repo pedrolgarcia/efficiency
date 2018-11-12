@@ -10,10 +10,14 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+  isLogged: boolean = true;
   loginForm: FormGroup;
 
-  constructor(private route: NavController, private formBuilder: FormBuilder, private menuCtrl: MenuController) {
+  constructor(private route: Router, private formBuilder: FormBuilder, private menuCtrl: MenuController) {
     this.menuCtrl.enable(false);
+    if(this.isLogged) {
+      this.route.navigate(['home']);
+    }
   }
 
   ngOnInit() {
@@ -27,7 +31,7 @@ export class LoginPage implements OnInit {
 
   login(results): void {
     this.menuCtrl.enable(true);
-    this.route.navigateRoot(['home']);
+    this.route.navigate(['home']);
   }
 
 }

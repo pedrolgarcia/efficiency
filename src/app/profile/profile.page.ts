@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Profile } from '../../profile/profile.model';
+import { Profile } from './profile.model';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-profile',
+  templateUrl: './profile.page.html',
+  styleUrls: ['./profile.page.scss'],
 })
-export class HeaderComponent implements OnInit {
+export class ProfilePage implements OnInit {
+
   profile: Profile;
 
-  constructor() {
+  constructor() { 
     this.profile = {
       id_usuario: 1,
       nome: 'Pedro',
@@ -20,7 +21,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.profile); 
   }
 
 }

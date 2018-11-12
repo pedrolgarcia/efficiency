@@ -1,18 +1,20 @@
 <ion-header>
   <ion-row align-items-center padding>
-    <ion-col size="3" text-center> 
+    <ion-col size="3" text-center>
       <ion-avatar>
-        <img [src]="user.avatar" alt="Usuário">
+        <a href="/profile"><img [src]="profile.avatar" alt="Usuário"></a>
       </ion-avatar>
     </ion-col>
-    <ion-col size="7" text-center> 
-      <ion-title class="username-header">
-        {{ user.nome}}
-      </ion-title>
+    <ion-col size="7" text-center>
+      <a href="/profile" style="color: #000;">
+        <ion-title class="username-header">
+          {{ profile.nome}}
+        </ion-title>
+      </a>
     </ion-col>
-    <ion-col size="2"> 
+    <ion-col size="2">
       <ion-buttons>
-          <ion-menu-button color="primary"></ion-menu-button>
+        <ion-menu-button color="primary"></ion-menu-button>
       </ion-buttons>
     </ion-col>
   </ion-row>
