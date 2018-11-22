@@ -30,13 +30,23 @@ ion-menu * {
     --background: #3880ff;
 }
 
-.page-title {
+.page-title-separated {
     background-color: #3880ff;
     color: #fff;
     margin: 16px 10px 10px;
     text-transform: uppercase;
     letter-spacing: 10px;
+    font-size: 18px !important;
     border-radius: 10px;
+}
+
+.page-title {
+    background-color: #3880ff;
+    color: #fff;
+    margin: 16px 0 0 0;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    font-size: 18px !important;
 }
 
 ion-card {
@@ -45,4 +55,40 @@ ion-card {
 
 ion-input {
     color: #fff;
+}
+
+form ion-icon { 
+    color: #fff;
+    margin-right: 10px;
+}
+
+form ion-item {
+    --padding-start: 0;
+    border-bottom: 1px solid #fff;
+    margin: 10px 10px;
+}
+
+.btn-group-form {
+    width: 250px;
+    margin: 0 auto;
+}
+
+.project-card-content {
+    background-color: #f4f5f8;
+    color: #000;
+    font-size: 17px;
+    padding-top: 8px;
+    border-radius: 10px;
+}
+
+ion-card-header {
+    padding-bottom: 0;
+}
+
+ion-card {
+    border-radius: 10px;
+}
+
+ion-button {
+    border-radius: 5px;
 }

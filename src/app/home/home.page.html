@@ -1,7 +1,7 @@
 <app-header></app-header>
 
 <ion-content padding-bottom padding-horizontal>
-  <ion-title class="page-title" padding text-center>Meu Feed</ion-title>
+  <ion-title class="page-title-separated" padding text-center>Meu Feed</ion-title>
 
   <ion-card color="primary" *ngFor="let project of projects" margin-top>
     <ion-card-header>
@@ -11,7 +11,7 @@
           <ion-card-subtitle>Subtítulo</ion-card-subtitle>
         </ion-col>
         <ion-col size="3" text-end>
-          <ion-button class="view-project-btn" fill="outline" size="small">Ver</ion-button>
+          <ion-button class="view-project-btn" fill="outline" size="small" [routerLink]="['/project']">Ver</ion-button>
         </ion-col>
       </ion-row>
     </ion-card-header>

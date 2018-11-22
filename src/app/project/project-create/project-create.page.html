@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<ion-content padding-bottom padding-horizontal>
+
+  <ion-card color="primary" margin-top>
+    <ion-card-header class="page-title" padding text-center>Cadastrar Projeto</ion-card-header>
+
+    <form no-padding padding-bottom padding-horizontal [formGroup]="createProjectForm">
+      <ion-item>
+        <ion-input type="text" formControlName="titulo" placeholder="Título"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" formControlName="subtitulo" placeholder="Subtítulo"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" formControlName="especialidade" placeholder="Especialidade"></ion-input>
+      </ion-item>
+
+      <ion-row>
+        <ion-col size="6" no-padding>
+          <ion-item>
+            <ion-label>Início</ion-label>
+            <ion-input type="date" formControlName="inicial" placeholder="Data Inicial"></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6" no-padding>
+          <ion-item>
+            <ion-input type="date" formControlName="entrega" placeholder="Data de Entrega"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-card-content class="project-card-content" padding margin>
+
+
+      <ion-row>
+        <ion-textarea name="descricao" readonly rows="4" text-justify value="Descrição"></ion-textarea>
+      </ion-row>
+
+      <ion-row padding-top>
+        <ion-col size="6">
+          <ion-button color="success" size="small" fill="outline">
+            <ion-icon name="checkmark"></ion-icon><span>Cadastrar</span>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="warning" size="small" fill="outline">
+            <ion-icon name="close"></ion-icon><span>Limpar</span>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

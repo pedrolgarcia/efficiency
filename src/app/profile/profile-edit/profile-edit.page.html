@@ -1,11 +1,12 @@
 <app-header></app-header>
 
 <ion-content padding-bottom padding-horizontal>
-  <ion-title class="page-title" padding text-center>Editar usuário</ion-title>
+  
 
   <ion-card color="primary">
-    <ion-card-content class="user-info">
-      <form padding [formGroup]="editProfileForm" (ngSubmit)="editUser(editProfileForm.value)">
+    <ion-card-header class="page-title" padding text-center>Editar usuário</ion-card-header>
+    <ion-card-content class="user-info" no-padding>
+      <form no-padding padding-bottom padding-horizontal [formGroup]="editProfileForm" (ngSubmit)="editUser(editProfileForm.value)">
           <ion-item>
               <ion-icon name="person"></ion-icon>
               <ion-input type="text" formControlName="name" placeholder="Nome"></ion-input>
@@ -17,12 +18,13 @@
             </ion-item>
 
             <ion-item>
-                <!-- <ion-icon name="check"></ion-icon> -->
+                <ion-icon name="checkmark-circle"></ion-icon>
                 <ion-input type="password" formControlName="confirmPassword" placeholder="Confirmar senha"></ion-input>
               </ion-item>
             
-            <div padding>
-              <ion-button type="submit" size="small" expand="block" color="success" [disabled]="editProfileForm.invalid">Salvar</ion-button>
+            <div class="btn-group-form" padding>
+              <ion-button type="submit" size="default" expand="block" color="success" [disabled]="editProfileForm.invalid" margin-bottom>Salvar</ion-button>
+              <ion-button type="reset" size="default" expand="block" color="danger">Limpar</ion-button>
             </div>
       </form>
     </ion-card-content>

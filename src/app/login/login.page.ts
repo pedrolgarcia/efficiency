@@ -10,7 +10,7 @@ import { RouterModule, Router } from '@angular/router';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  isLogged: boolean = true;
+  isLogged: boolean = false;
   loginForm: FormGroup;
 
   constructor(private route: Router, private formBuilder: FormBuilder, private menuCtrl: MenuController) {
