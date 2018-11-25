@@ -1,0 +1,38 @@
+<app-header></app-header>
+
+<ion-content padding-bottom padding-horizontal>
+
+  <ion-card color="primary" margin-top>
+    <ion-card-header class="page-title" padding text-center>Desempenho</ion-card-header>
+
+    <ion-card-content>
+      <ion-spinner color="light"></ion-spinner>
+      <span>Analisando desempenho</span>
+      <ion-slides style="height: 400px;" pager="true" [options]="slideOpts">
+        <ion-slide>
+          <div style="width: 100%;">
+            <div margin-bottom>
+              <ion-title>Projetos cadastrados</ion-title>
+              <ion-button color="light" fill="outline">4</ion-button>            
+            </div>
+            <div>
+              <ion-title>Tarefas cadastradas</ion-title>
+              <ion-button color="light" fill="outline">4</ion-button>            
+            </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div style="width: 100%;">
+            <h1>Slide 2</h1>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div style="width: 100%;">
+            <h1>Slide 3</h1>
+          </div>
+        </ion-slide>
+      </ion-slides>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

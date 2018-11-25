@@ -9,7 +9,11 @@ const routes: Routes = [
   { path: 'profile-edit', loadChildren: './profile/profile-edit/profile-edit.module#ProfileEditPageModule' },
   { path: 'project', loadChildren: './project/project.module#ProjectPageModule' },
   { path: 'task', loadChildren: './task/task.module#TaskPageModule' },
-  { path: 'project-create', loadChildren: './project/project-create/project-create.module#ProjectCreatePageModule' }
+  { path: 'project-create', loadChildren: './project/project-create/project-create.module#ProjectCreatePageModule' },
+  { path: 'forgot', loadChildren: './login/forgot/forgot.module#ForgotPageModule' },
+  { path: 'register', loadChildren: './login/register/register.module#RegisterPageModule' },
+  { path: 'task-create', loadChildren: './task/task-create/task-create.module#TaskCreatePageModule' },  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  { path: 'performance', loadChildren: './performance/performance.module#PerformancePageModule' }
 
 ];
 

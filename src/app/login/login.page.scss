@@ -15,7 +15,6 @@ ion-row {
 
 ion-button {
     font-weight: 300;
-    margin: 10px 20px;
     color: var(--ion-color-primary-shade);
 }
 
@@ -23,4 +22,20 @@ ion-item {
     --padding-start: 0;
     border-bottom: 1px solid #fff;
     margin: 10px 20px;
+}
+
+.register a {
+    display: block;
+    text-decoration: underline;
+    color: #fff; 
+}
+
+.register ion-button {
+    padding: 0 8px;
+}
+
+ion-button span {
+    color: #3171e0;
+    font-weight: bold;
+    font-style: normal;
 }

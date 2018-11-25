@@ -53,8 +53,14 @@ ion-card {
     border-radius: 10px !important;
 }
 
-ion-input {
+ion-input, ion-select {
     color: #fff;
+    padding: 0;
+}
+
+.select {
+    --placeholder-color: #98BDFF;
+    --icon-color: #98BDFF !important;
 }
 
 form ion-icon { 
@@ -65,7 +71,7 @@ form ion-icon {
 form ion-item {
     --padding-start: 0;
     border-bottom: 1px solid #fff;
-    margin: 10px 10px;
+    // margin: 10px 10px;
 }
 
 .btn-group-form {
@@ -91,4 +97,9 @@ ion-card {
 
 ion-button {
     border-radius: 5px;
+}
+
+ion-label {
+    color: #fff;
+    font-size: 14px;
 }

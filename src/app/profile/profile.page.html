@@ -22,6 +22,9 @@
           <ion-col size="12" text-center>
             <ion-card-title class="username">{{ profile.nome}}</ion-card-title>
           </ion-col>
+          <ion-col size="12" text-center>
+            <ion-label style="color: #98bdff; font-size: 20px;" no-margin>{{ profile.email }}</ion-label>
+          </ion-col>
         </ion-row>
       </ion-card-header>
   
@@ -33,16 +36,13 @@
           <ion-col size="12" text-center>
             <ion-label no-margin>Tarefas - 230</ion-label>
           </ion-col>
-          <ion-col size="12" text-center>
-            <ion-label no-margin>Ranking - 8º</ion-label>
-          </ion-col>
-          <ion-col size="12" text-center margin-top>
+          <!-- <ion-col size="12" text-center margin-top>
             <ion-label no-margin>Erros por tarefa</ion-label>
             <ion-button color="danger" fill="outline" no-margin>4</ion-button>
-          </ion-col>
+          </ion-col> -->
           <ion-col size="12" text-center margin-top>
             <ion-label no-margin>Tarefas atrasadas</ion-label>
-            <ion-button color="warning" fill="outline" no-margin>4</ion-button>
+            <ion-button color="danger" fill="outline" no-margin>4</ion-button>
           </ion-col>
           <ion-col size="12" text-center margin-top>
               <ion-button color="light" fill="outline" no-margin [routerLink]="['/profile-edit']"><ion-icon name="create"></ion-icon>Editar perfil</ion-button>

@@ -8,20 +8,20 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class ProjectCreatePage implements OnInit {
   createProjectForm: FormGroup;
+  today: Date = new Date();
 
   constructor(private formBuilder: FormBuilder) {
     this.createProjectForm = this.formBuilder.group({
       titulo: this.formBuilder.control(''),
       subtitulo: this.formBuilder.control(''),
       especialidade: this.formBuilder.control(''),
-      inicial: this.formBuilder.control(''),
+      inicio: this.formBuilder.control(''),
       entrega: this.formBuilder.control(''),
       descricao: this.formBuilder.control('')
     });
    }
 
   ngOnInit() {
-    
   }
 
 }
