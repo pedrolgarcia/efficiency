@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<ion-content padding-bottom padding-horizontal>
+
+  <ion-card color="primary" margin-top>
+    <ion-card-header class="page-title" padding text-center>Relatório de erro</ion-card-header>
+
+    <form no-padding padding-bottom padding-horizontal [formGroup]="errorReportForm">
+      <ion-row>
+        <ion-col size="4" align-self-center>
+          <ion-label>Tipo de erro: </ion-label>
+        </ion-col>
+        <ion-col size="8" no-padding align-self-center>
+          <ion-select class="select" formControlName="tipo" cancelText="Cancelar" placeholder="Selecione o tipo">
+            <ion-select-option value="t1">Tipo 1</ion-select-option>
+            <ion-select-option value="t2">Tipo 2</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4" align-self-center>
+          <ion-label>Aparições: </ion-label>
+        </ion-col>
+        <ion-col size="8" no-padding align-self-center>
+          <ion-item>
+            <ion-input type="number" formControlName="aparicoes" placeholder="Digite o número de aparições"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4" align-self-center>
+          <ion-label>Data de descobrimento: </ion-label>
+        </ion-col>
+        <ion-col size="8" no-padding align-self-center>
+          <ion-item>
+            <ion-input type="date" formControlName="descobrimento" placeholder="Digite a data de descobrimento"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4" align-self-center>
+          <ion-label>Data de remoção: </ion-label>
+        </ion-col>
+        <ion-col size="8" no-padding align-self-center>
+          <ion-item>
+            <ion-input type="date" formControlName="remocao"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-card-content class="project-card-content" padding margin-top>
+
+
+        <ion-row>
+          <ion-textarea formControlName="descricao" rows="5" text-justify placeholder="Digite a descrição"></ion-textarea>
+        </ion-row>
+
+        <ion-row padding-top>
+          <ion-col size="6">
+            <ion-button color="success" size="small" fill="outline">
+              <ion-icon name="checkmark" color="success"></ion-icon><span>Salvar</span>
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="danger" size="small" fill="outline">
+              <ion-icon name="close" color="danger"></ion-icon><span>Limpar</span>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </form>
+  </ion-card>
+
+</ion-content>

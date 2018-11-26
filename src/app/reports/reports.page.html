@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<ion-content padding-bottom padding-horizontal>
+
+  <ion-card color="primary" margin-top>
+    <ion-card-header class="page-title" padding text-center>Relatórios</ion-card-header>
+
+    <ion-card-content style="height: 400px;">
+      <ion-row justify-content-center margin-bottom>
+        <ion-button color="light" size="default" expand="block" style="width: 80%;" [routerLink]="['/annotations']"><span class="azul">Anotações</span></ion-button>    
+      </ion-row>
+      <ion-row justify-content-center margin-bottom>
+        <ion-button color="light" size="default" expand="block" style="width: 80%;" [routerLink]="['/time-report']"><span class="azul">Relatório de tempo</span></ion-button>    
+      </ion-row>
+      <ion-row justify-content-center margin-bottom>
+        <ion-button color="light" size="default" expand="block" style="width: 80%;" [routerLink]="['/error-report']"><span class="azul">Relatório de erro</span></ion-button>    
+      </ion-row>
+      
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

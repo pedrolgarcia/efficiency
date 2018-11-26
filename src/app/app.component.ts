@@ -14,6 +14,8 @@ export class AppComponent {
     { title: 'Cadastrar Projeto', url: '/project-create', icon: 'add' },
     { title: 'Cadastrar Tarefa', url: '/task-create', icon: 'add' },
     { title: 'Desempenho', url: '/performance', icon: 'stats' },
+    { title: 'Cronômetro', url: '/timer', icon: 'time' },
+    { title: 'Anotações', url: '/annotations', icon: 'create' },
     { title: 'Editar Usuário', url: '/profile-edit', icon: 'person' },
     { title: 'Configurações', url: '/settings', icon: 'settings' },
   ];

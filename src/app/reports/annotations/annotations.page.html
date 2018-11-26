@@ -1,0 +1,57 @@
+<app-header></app-header>
+
+<ion-content padding-bottom padding-horizontal>
+
+  <ion-card color="primary" margin-top>
+    <ion-card-header class="page-title" padding text-center>Anotações</ion-card-header>
+
+    <form no-padding padding-bottom padding-horizontal [formGroup]="annotationForm">
+      <ion-row>
+        <ion-col size="4" align-self-center>
+          <ion-label>Projeto: </ion-label>
+        </ion-col>
+        <ion-col size="8" no-padding align-self-center>
+          <ion-select class="select" formControlName="projeto" cancelText="Cancelar" placeholder="Selecione o projeto">
+            <ion-select-option value="p1">Projeto 1</ion-select-option>
+            <ion-select-option value="p2">Projeto 2</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4" align-self-center>
+          <ion-label>Tarefa: </ion-label>
+        </ion-col>
+        <ion-col size="8" no-padding align-self-center>
+          <ion-select class="select" formControlName="tarefa" cancelText="Cancelar" placeholder="Selecione a tarefa">
+            <ion-select-option value="t1">Tarefa 1</ion-select-option>
+            <ion-select-option value="documentar">Tarefa 2</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-card-content class="project-card-content" padding margin-top>
+
+
+        <ion-row>
+          <ion-textarea name="anotacao" rows="13" text-justify placeholder="Digite a anotação"></ion-textarea>
+        </ion-row>
+
+        <ion-row padding-top>
+          <ion-col size="6">
+            <ion-button color="success" size="small" fill="outline">
+              <ion-icon name="checkmark" color="success"></ion-icon><span>Salvar</span>
+            </ion-button>
+          </ion-col>
+          <ion-col size="6">
+            <ion-button color="danger" size="small" fill="outline">
+              <ion-icon name="close" color="danger"></ion-icon><span>Limpar</span>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+
+      </ion-card-content>
+    </form>
+  </ion-card>
+
+</ion-content>

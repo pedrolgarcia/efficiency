@@ -12,8 +12,14 @@ const routes: Routes = [
   { path: 'project-create', loadChildren: './project/project-create/project-create.module#ProjectCreatePageModule' },
   { path: 'forgot', loadChildren: './login/forgot/forgot.module#ForgotPageModule' },
   { path: 'register', loadChildren: './login/register/register.module#RegisterPageModule' },
-  { path: 'task-create', loadChildren: './task/task-create/task-create.module#TaskCreatePageModule' },  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
-  { path: 'performance', loadChildren: './performance/performance.module#PerformancePageModule' }
+  { path: 'task-create', loadChildren: './task/task-create/task-create.module#TaskCreatePageModule' },
+  { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
+  { path: 'performance', loadChildren: './performance/performance.module#PerformancePageModule' },
+  { path: 'reports', loadChildren: './reports/reports.module#ReportsPageModule' },
+  { path: 'annotations', loadChildren: './reports/annotations/annotations.module#AnnotationsPageModule' },
+  { path: 'timer', loadChildren: './timer/timer.module#TimerPageModule' },
+  { path: 'time-report', loadChildren: './reports/time-report/time-report.module#TimeReportPageModule' },
+  { path: 'error-report', loadChildren: './reports/error-report/error-report.module#ErrorReportPageModule' }
 
 ];
 

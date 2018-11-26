@@ -102,4 +102,11 @@ ion-button {
 ion-label {
     color: #fff;
     font-size: 14px;
+    white-space: normal !important;
+}
+
+ion-button span.azul {
+    color: #3171e0;
+    font-weight: bold;
+    font-style: normal;
 }

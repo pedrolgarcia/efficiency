@@ -15,11 +15,12 @@ export class TaskCreatePage implements OnInit {
   ngOnInit() {
     this.createTaskForm = this.formBuilder.group({
       titulo: this.formBuilder.control(['']),
+      categoria: this.formBuilder.control(['']),
       projeto: this.formBuilder.control(['']),
       inicio: this.formBuilder.control(['']),
       entrega: this.formBuilder.control(['']),
       descricao: this.formBuilder.control(['']),
-    })
+    });
   }
 
 }
