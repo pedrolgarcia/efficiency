@@ -2,9 +2,15 @@
 	<ion-row padding justify-content-center>
     <ion-col align-self-center text-center>
       <h1 class="page-title" padding-bottom>Esqueceu sua senha?</h1>
-      <p>Um e-mail será enviado para você para que possa redefinir sua senha.</p>
-      <ion-button size="large" color="light"><span class="azul">Enviar e-mail</span></ion-button>
-      <ion-button size="large" color="light" [routerLink]="[ '/login' ]"><span class="azul">Cancelar</span></ion-button>
+      <p>Um e-mail será enviado para você para que possa visualizar sua senha.</p>
+      <form padding [formGroup]="forgotForm">
+        <ion-item style="margin-bottom: 40px;">
+          <ion-icon name="person"></ion-icon>
+          <ion-input type="text" formControlName="email" placeholder="Digite seu e-mail"></ion-input>
+        </ion-item>
+        <ion-button size="default" expand="block" color="light" margin-vertical><span class="azul">Enviar e-mail</span></ion-button>
+        <ion-button size="default" expand="block" color="light" [routerLink]="[ '/login' ]"><span class="azul">Cancelar</span></ion-button>
+      </form>
     </ion-col>
   </ion-row>   
 </ion-grid>

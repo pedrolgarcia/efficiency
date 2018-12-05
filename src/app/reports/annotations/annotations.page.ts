@@ -16,7 +16,8 @@ export class AnnotationsPage implements OnInit {
     this.annotationForm = this.formBuilder.group({
       projeto: this.formBuilder.control(['']),
       tarefa: this.formBuilder.control(['']),
-      anotacao: this.formBuilder.control([''])
+      anotacao: this.formBuilder.control(['']),
+      data: this.formBuilder.control(['']),
     });
   }
 

@@ -19,7 +19,9 @@ const routes: Routes = [
   { path: 'annotations', loadChildren: './reports/annotations/annotations.module#AnnotationsPageModule' },
   { path: 'timer', loadChildren: './timer/timer.module#TimerPageModule' },
   { path: 'time-report', loadChildren: './reports/time-report/time-report.module#TimeReportPageModule' },
-  { path: 'error-report', loadChildren: './reports/error-report/error-report.module#ErrorReportPageModule' }
+  { path: 'error-report', loadChildren: './reports/error-report/error-report.module#ErrorReportPageModule' },  { path: 'project-edit', loadChildren: './project/project-edit/project-edit.module#ProjectEditPageModule' },
+  { path: 'task-edit', loadChildren: './task/task-edit/task-edit.module#TaskEditPageModule' }
+
 
 ];
 

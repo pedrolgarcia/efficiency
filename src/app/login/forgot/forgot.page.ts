@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ForgotPage implements OnInit {
 
-  constructor() { }
+  forgotForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.forgotForm = this.formBuilder.group({
+      email: this.formBuilder.control([''])
+    });
   }
 
 }

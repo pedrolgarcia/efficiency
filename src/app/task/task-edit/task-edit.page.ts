@@ -2,18 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-task-create',
-  templateUrl: './task-create.page.html',
-  styleUrls: ['./task-create.page.scss'],
+  selector: 'app-task-edit',
+  templateUrl: './task-edit.page.html',
+  styleUrls: ['./task-edit.page.scss'],
 })
-export class TaskCreatePage implements OnInit {
+export class TaskEditPage implements OnInit {
 
-  createTaskForm: FormGroup;
+  editTaskForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.createTaskForm = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder) {
+    this.editTaskForm = this.formBuilder.group({
       nome: this.formBuilder.control(['']),
       categoria: this.formBuilder.control(['']),
       projeto: this.formBuilder.control(['']),
@@ -21,6 +19,9 @@ export class TaskCreatePage implements OnInit {
       entrega: this.formBuilder.control(['']),
       descricao: this.formBuilder.control(['']),
     });
+   }
+
+  ngOnInit() {
   }
 
 }

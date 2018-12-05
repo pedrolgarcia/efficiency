@@ -5,10 +5,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ForgotPage } from './forgot.page';
+import { ProjectEditPage } from './project-edit.page';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [
-  { path: '', component: ForgotPage }
+  { path: '', component: ProjectEditPage }
 ];
 
 @NgModule({
@@ -17,8 +18,9 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     IonicModule,
+    SharedModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ForgotPage]
+  declarations: [ProjectEditPage]
 })
-export class ForgotPageModule {}
+export class ProjectEditPageModule {}

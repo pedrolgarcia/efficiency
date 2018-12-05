@@ -2,6 +2,7 @@
 	<ion-row justify-content-center>
 		<ion-col size="12" align-self-center>
 			<div text-center>
+				<img src="../../assets/logo-simbol.png" alt="Efficiency" width="100">
 				<h1 class="logo">Efficiency</h1>
 			</div>
 			<form padding [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
@@ -21,7 +22,7 @@
 					</ion-button>
 				</div>
 			</form>
-			<div class="register" padding-top text-center>
+			<div class="register" text-center>
 				<ion-button size="default" color="light" [routerLink]="['/forgot']"><span class="azul">Esqueci a senha</span></ion-button>
 				<ion-button size="default" color="light" [routerLink]="['/register']"><span class="azul">Criar conta</span></ion-button>
 				<!-- <a href="/forgot" margin-bottom>Esqueceu sua senha?</a>

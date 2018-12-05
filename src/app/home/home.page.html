@@ -6,12 +6,11 @@
   <ion-card color="primary" *ngFor="let project of projects" margin-top>
     <ion-card-header>
       <ion-row align-items-center>
-        <ion-col size="9">
+        <ion-col size="8">
           <ion-card-title>Nome do projeto</ion-card-title>
-          <ion-card-subtitle>Subtítulo</ion-card-subtitle>
         </ion-col>
-        <ion-col size="3" text-end>
-          <ion-button  color="light" size="default" [routerLink]="['/project']"><span class="azul">Ver</span></ion-button>
+        <ion-col size="4" text-end>
+          <ion-button color="light" size="small" [routerLink]="['/project']" style="text-transform: none;"><span class="azul">Ver projeto</span></ion-button>
         </ion-col>
       </ion-row>
     </ion-card-header>

@@ -11,13 +11,15 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     { title: 'Meu feed', url: '/home', icon: 'home' },
-    { title: 'Cadastrar Projeto', url: '/project-create', icon: 'add' },
-    { title: 'Cadastrar Tarefa', url: '/task-create', icon: 'add' },
+    { title: 'Cadastrar Projeto', url: '/project-create', icon: 'clipboard' },
+    { title: 'Cadastrar Tarefa', url: '/task-create', icon: 'filing' },
+    { title: 'Calendário', url: '/login', icon: 'calendar' },
     { title: 'Desempenho', url: '/performance', icon: 'stats' },
     { title: 'Cronômetro', url: '/timer', icon: 'time' },
-    { title: 'Anotações', url: '/annotations', icon: 'create' },
+    { title: 'Anotações', url: '/annotations', icon: 'bookmarks' },
     { title: 'Editar Usuário', url: '/profile-edit', icon: 'person' },
     { title: 'Configurações', url: '/settings', icon: 'settings' },
+    { title: 'Sair', url: '/login', icon: 'log-out' },
   ];
 
   constructor(

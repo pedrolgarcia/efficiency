@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-error-report',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ErrorReportPage implements OnInit {
 
-  constructor() { }
+  errorReportForm: FormGroup;
+
+  constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.errorReportForm = this.formBuilder.group({
+      tipo: this.formBuilder.control(['']),
+      tentativas: this.formBuilder.control(['']),
+      ocorrencias: this.formBuilder.control(['']),
+      descobrimento: this.formBuilder.control(['']),
+      remocao: this.formBuilder.control(['']),
+      descricao: this.formBuilder.control([''])
+    });
   }
 
 }

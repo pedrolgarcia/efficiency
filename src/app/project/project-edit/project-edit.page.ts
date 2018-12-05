@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
-  selector: 'app-project-create',
-  templateUrl: './project-create.page.html',
-  styleUrls: ['./project-create.page.scss'],
+  selector: 'app-project-edit',
+  templateUrl: './project-edit.page.html',
+  styleUrls: ['./project-edit.page.scss'],
 })
-export class ProjectCreatePage implements OnInit {
-  createProjectForm: FormGroup;
-  today: Date = new Date();
+export class ProjectEditPage implements OnInit {
+
+  editProjectForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.createProjectForm = this.formBuilder.group({
+    this.editProjectForm = this.formBuilder.group({
       nome: this.formBuilder.control(''),
       // subtitulo: this.formBuilder.control(''),
       // especialidade: this.formBuilder.control(''),

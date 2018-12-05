@@ -14,9 +14,61 @@
           <ion-button color="light" size="small" fill="outline" disabled>Finalizada</ion-button>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col size="4" align-self-center>
+          <ion-label>Categoria: </ion-label>
+        </ion-col>
+        <ion-col size="8" no-padding>
+          <ion-item style="border-bottom: 1px solid #fff;">
+            <ion-input type="text" value="Categoria" readonly placeholder="Categoria"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row margin-top>
+          <ion-col size="6">
+            <ion-label no-margin>Data de Início:</ion-label>
+            <ion-item style="border-bottom: 1px solid #fff;">
+              <ion-datetime displayFormat="DD/MM/YYYY" value="2018-10-10" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col size="6">
+            <ion-label no-margin>Data de Entrega:</ion-label>
+            <ion-item style="border-bottom: 1px solid #fff;">
+              <ion-datetime displayFormat="DD/MM/YYYY" value="2018-10-10" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-label>Descrição:</ion-label>
+        </ion-row>
+        <ion-row class="project-card-content" padding margin-bottom>
+          <ion-textarea disabled readonly rows="4" text-justify value="Lorem ipsum viverra porta aliquam fringilla ligula nam semper, lacinia rhoncus eleifend pharetra volutpat sagittis tempus, condimentum inceptos vestibulum quisque scelerisque habitant curabitur. maecenas nostra per ad id curabitur"></ion-textarea>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4">
+            <ion-button color="success" size="small" expand="block" [routerLink]="['/task']" style="text-transform: none; font-weight: bold;">
+              <ion-icon name="checkmark"></ion-icon><span> Finalizar</span>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button color="warning" size="small" expand="block" [routerLink]="['/task-edit']" style="text-transform: none; font-weight: bold;">
+              <ion-icon name="create"></ion-icon><span> Editar</span>
+            </ion-button>
+          </ion-col>
+          <ion-col size="4">
+            <ion-button color="danger" size="small" expand="block" [routerLink]="['/task']" style="text-transform: none; font-weight: bold;">
+              <ion-icon name="trash"></ion-icon><span> Excluir</span>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row margin-bottom>
+          <ion-col size="12" text-center>
+            <ion-button color="light" size="default" expand="block" [routerLink]="[ '/reports' ]"><span class="azul">Relatório de testes</span></ion-button>
+          </ion-col>
+        </ion-row>
     </ion-card-header>
 
-    <ion-card-content class="project-card-content" padding margin>
+    <!-- <ion-card-content class="project-card-content" padding margin>
       <ion-row>
         <ion-col size="6" no-padding>
           <ion-label>
@@ -44,11 +96,7 @@
           </ion-button>
         </ion-col>
       </ion-row>
-    </ion-card-content>
-    <ion-row margin-bottom>
-      <ion-col size="12" text-center>
-        <ion-button color="light" size="default" [routerLink]="[ '/reports' ]"><span class="azul">Adicionar relatório</span></ion-button>
-      </ion-col>
-    </ion-row>
+    </ion-card-content> -->
+    
   </ion-card>
 </ion-content>

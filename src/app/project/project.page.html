@@ -1,45 +1,74 @@
 <app-header></app-header>
 
 <ion-content padding-bottom padding-horizontal>
-  
-    <ion-card color="primary" margin-top>
-      <ion-card-header class="page-title" padding text-center>Projeto</ion-card-header>
-      <ion-card-header no-padding padding-horizontal>
-        <ion-row align-items-center>
-          <ion-col size="8">
-            <ion-card-title>Nome do projeto</ion-card-title>
-            <ion-card-subtitle>Subtítulo</ion-card-subtitle>
-          </ion-col>
-          <ion-col size="4" text-end>
-              <ion-button color="danger" size="default">Excluir</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-header>
-    
-      <ion-card-content (click)="detailTask()" class="project-card-content" padding margin *ngFor="let task of tasks">
-        <ion-row>
-          <ion-col size="6" no-padding>
-            <ion-label><ion-icon name="create" color="primary"></ion-icon> Tarefa</ion-label>
-          </ion-col>
-          <ion-col size="6" no-padding>
-            <ion-label><ion-icon name="calendar" color="primary"></ion-icon> 12/12/2018</ion-label>            
-          </ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-textarea disabled readonly rows="4" text-justify value="Lorem ipsum viverra porta aliquam fringilla ligula nam semper, lacinia rhoncus eleifend pharetra volutpat sagittis tempus, condimentum inceptos vestibulum quisque scelerisque habitant curabitur. maecenas nostra per ad id curabitur"></ion-textarea>
-        </ion-row>
-        <ion-row padding-top>
-          <ion-col size="6">
-            <ion-button color="success" size="small" fill="outline">
-              <ion-icon name="checkmark"></ion-icon><span>Concluir</span>
-            </ion-button>
-          </ion-col>
-          <ion-col size="6">
-            <ion-button color="danger" size="small" fill="outline">
-              <ion-icon name="close"></ion-icon><span>Excluir</span>
-            </ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
-  </ion-content>  
+
+  <ion-card color="primary" margin-top>
+    <ion-card-header class="page-title" padding text-center>Projeto</ion-card-header>
+    <ion-card-header no-padding padding-horizontal>
+      <ion-row align-items-center>
+        <ion-col size="12">
+          <ion-card-title>Nome do projeto</ion-card-title>
+        </ion-col>
+      </ion-row>
+      <ion-row margin-top>
+        <ion-col size="6">
+          <ion-label no-margin>Data de Início:</ion-label>
+          <ion-item style="border-bottom: 1px solid #fff;">
+            <ion-datetime displayFormat="DD/MM/YYYY" value="2018-10-10" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-label no-margin>Data de Entrega:</ion-label>
+          <ion-item style="border-bottom: 1px solid #fff;">
+            <ion-datetime displayFormat="DD/MM/YYYY" value="2018-10-10" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-label>Descrição:</ion-label>
+      </ion-row>
+      <ion-row class="project-card-content" padding margin-bottom>
+        <ion-textarea disabled readonly rows="4" text-justify value="Lorem ipsum viverra porta aliquam fringilla ligula nam semper, lacinia rhoncus eleifend pharetra volutpat sagittis tempus, condimentum inceptos vestibulum quisque scelerisque habitant curabitur. maecenas nostra per ad id curabitur"></ion-textarea>
+      </ion-row>
+      <ion-row margin-bottom>
+        <ion-col size="4">
+          <ion-button color="success" size="small" expand="block" [routerLink]="['/project']" style="text-transform: none; font-weight: bold;">
+            <ion-icon name="checkmark"></ion-icon><span> Finalizar</span>
+          </ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button color="warning" size="small" expand="block" [routerLink]="['/project-edit']" style="text-transform: none; font-weight: bold;">
+            <ion-icon name="create"></ion-icon><span> Editar</span>
+          </ion-button>
+        </ion-col>
+        <ion-col size="4">
+          <ion-button color="danger" size="small" expand="block" [routerLink]="['/project']" style="text-transform: none; font-weight: bold;">
+            <ion-icon name="trash"></ion-icon><span> Excluir</span>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border-bottom: 1px solid #fff;"></ion-row>
+      <ion-row margin-vertical>
+        <ion-card-title>Tarefas relacionadas</ion-card-title>
+      </ion-row>
+    </ion-card-header>
+
+    <ion-card-content (click)="detailTask()" class="project-card-content" padding margin *ngFor="let task of tasks">
+      <ion-row>
+        <ion-col size="6" no-padding>
+          <ion-label>
+            <ion-icon name="create" color="primary"></ion-icon> Tarefa
+          </ion-label>
+        </ion-col>
+        <ion-col size="6" no-padding>
+          <ion-label>
+            <ion-icon name="calendar" color="primary"></ion-icon> 12/12/2018
+          </ion-label>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-textarea disabled readonly rows="4" text-justify value="Lorem ipsum viverra porta aliquam fringilla ligula nam semper, lacinia rhoncus eleifend pharetra volutpat sagittis tempus, condimentum inceptos vestibulum quisque scelerisque habitant curabitur. maecenas nostra per ad id curabitur"></ion-textarea>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

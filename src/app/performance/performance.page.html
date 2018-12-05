@@ -14,11 +14,11 @@
             </div>
             <div margin-bottom>
               <ion-title>Projetos cadastrados</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>            
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
             <div>
               <ion-title>Tarefas cadastradas</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>            
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
           </div>
         </ion-slide>
@@ -29,61 +29,93 @@
             </div>
             <div margin-bottom>
               <ion-title>Projetos concluídos</ion-title>
-              <ion-button color="success" fill="outline">4</ion-button>            
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
             <div>
               <ion-title>Tarefas concluídas</ion-title>
-              <ion-button color="success" fill="outline">4</ion-button>            
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
           </div>
         </ion-slide>
         <ion-slide>
           <div style="width: 100%;">
             <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">No prazo</h1>
+              <h1 style="font-weight: bold;">Atrasos</h1>
             </div>
             <div margin-bottom>
-              <ion-title>Projetos concluídos no prazo</ion-title>
-              <ion-button color="success" fill="outline">4</ion-button>            
+              <ion-title>Projetos atrasados</ion-title>
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
             <div>
-              <ion-title>Tarefas concluídas no prazo</ion-title>
-              <ion-button color="success" fill="outline">4</ion-button>            
+              <ion-title>Tarefas atrasadas</ion-title>
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
           </div>
         </ion-slide>
         <ion-slide>
           <div style="width: 100%;">
             <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">Tarefas por tipo</h1>
+              <h1 style="font-weight: bold;">Erros</h1>
             </div>
             <div margin-bottom>
-              <ion-title>Quantidade de tarefas por tipo</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>            
+              <ion-title>Quantidade de erros gerados</ion-title>
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
-            <div>
-              <ion-title style="white-space: normal;">Média de tempo de uma tarefa concluída por tipo</ion-title>
-              <ion-button color="success" fill="outline">4</ion-button>            
-            </div>
-          </div>
-        </ion-slide>
-        <ion-slide>
-          <div style="width: 100%;">
-            <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">Erros gerados</h1>
-            </div>
-            <div margin-bottom>
-              <ion-title>Total de erros</ion-title>
-              <ion-button color="danger" fill="outline">4</ion-button>            
-            </div>
-            <div margin-bottom>
+            <!--<div margin-bottom>
               <ion-title>Erros por tipo</ion-title>
-              <ion-button color="danger" fill="outline">4</ion-button>            
-            </div>
+              <ion-button color="light" fill="outline">4</ion-button>            
+            </div>-->
             <div>
               <ion-title>Média de erros por tarefa</ion-title>
-              <ion-button color="danger" fill="outline">4</ion-button>            
+              <ion-button color="light" fill="outline">4</ion-button>
             </div>
+          </div>
+        </ion-slide>
+        <ion-slide>
+          <div style="width: 100%;">
+            <div margin-bottom padding-bottom>
+              <h1 style="font-weight: bold;">Erros por tipo</h1>
+            </div>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Erros de compilação</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Erros de sintaxe</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Erros de semântica</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Erros de lógica</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Erros de planejamento</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
           </div>
         </ion-slide>
         <ion-slide>
@@ -91,14 +123,46 @@
             <div margin-bottom padding-bottom>
               <h1 style="font-weight: bold;">Tarefa por categoria</h1>
             </div>
-            <div margin-bottom>
-              <ion-title>Tarefas por categoria</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>            
-            </div>
-            <div>
-              <ion-title>Média de tempo de tarefas concluídas</ion-title>
-              <ion-button color="success" fill="outline">4</ion-button>            
-            </div>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Tarefas de documentação</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Tarefas de programação</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Tarefas de design</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Tarefas de teste</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
+                <ion-title>Outras tarefas</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">4</ion-button>
+              </ion-col>
+            </ion-row>
           </div>
         </ion-slide>
       </ion-slides>
