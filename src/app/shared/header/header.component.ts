@@ -8,19 +8,21 @@ import { Profile } from '../../profile/profile.model';
 })
 export class HeaderComponent implements OnInit {
   profile: Profile;
+  user: any = JSON.parse(localStorage.getItem('user'));
+  
 
   constructor() {
+    console.log(this.user);
     this.profile = {
-      id_usuario: 1,
-      nome: 'Pedro',
-      senha: '123456',
-      email: 'teste@teste.com.br',
-      avatar: 'src/assets/users/profile.png'
+      id_usuario: this.user.id,
+      nome: this.user.name,
+      email: this.user.email,
+      avatar: this.user.avatar
     };
   }
 
   ngOnInit() {
-    console.log(this.profile); 
+    console.log(this.profile);
   }
 
 }

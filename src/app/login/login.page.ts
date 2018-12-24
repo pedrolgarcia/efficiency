@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MenuController, NavController } from '@ionic/angular';
 import { RouterModule, Router } from '@angular/router';
+import { AuthService } from './auth.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +15,7 @@ export class LoginPage implements OnInit {
   isLogged: boolean = false;
   loginForm: FormGroup;
 
-  constructor(private route: Router, private formBuilder: FormBuilder, private menuCtrl: MenuController) {
+  constructor(private route: Router, private formBuilder: FormBuilder, private menuCtrl: MenuController, private authService: AuthService) {
     this.menuCtrl.enable(false);
     if(this.isLogged) {
       this.route.navigate(['home']);
@@ -22,16 +24,18 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
-      //user: this.formBuilder.control('', [Validators.required]),
-      //password: this.formBuilder.control('', [Validators.required, Validators.minLength(8)])
-      user: this.formBuilder.control(''),
-      password: this.formBuilder.control(''),
+      email: this.formBuilder.control('', [Validators.required, Validators.email]),
+      password: this.formBuilder.control('', [Validators.required])
     });
   }
 
-  login(results): void {
-    this.menuCtrl.enable(true);
-    this.route.navigate(['home']);
+  onSubmit() {
+    this.authService.login(this.loginForm.value).subscribe(response => {
+      this.menuCtrl.enable(true);
+      this.route.navigate(['home'])
+    }, (errorResponse: HttpErrorResponse) => {
+      console.log(errorResponse);
+    });
   }
 
 }

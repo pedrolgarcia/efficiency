@@ -5,10 +5,10 @@
 				<img src="../../assets/logo-simbol.png" alt="Efficiency" width="100">
 				<h1 class="logo">Efficiency</h1>
 			</div>
-			<form padding [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+			<form padding [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 				<ion-item>
 					<ion-icon name="person"></ion-icon>
-					<ion-input type="text" formControlName="user" placeholder="Usuário"></ion-input>
+					<ion-input type="email" formControlName="email" placeholder="E-mail"></ion-input>
 				</ion-item>
 
 				<ion-item>
