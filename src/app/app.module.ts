@@ -10,6 +10,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './login/auth.guard';
+import { HomePageModule } from './home/home.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -18,13 +20,15 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    HomePageModule
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

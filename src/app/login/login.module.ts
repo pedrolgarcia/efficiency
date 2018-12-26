@@ -6,6 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { LoginPage } from './login.page';
+import { SharedModule } from '../shared/shared.module';
 
 const routes: Routes = [
   { path: '', component: LoginPage }
@@ -16,6 +17,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes)
   ],

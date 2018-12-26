@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Profile } from '../../profile/profile.model';
+import { AuthService } from '../../login/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +9,14 @@ import { Profile } from '../../profile/profile.model';
 })
 export class HeaderComponent implements OnInit {
   profile: Profile;
-  user: any = JSON.parse(localStorage.getItem('user'));
-  
+  user: any;
 
-  constructor() {
+  constructor(private authService: AuthService) {
+    this.user = this.authService.getUser();
     console.log(this.user);
     this.profile = {
-      id_usuario: this.user.id,
-      nome: this.user.name,
+      id: this.user.id,
+      name: this.user.name,
       email: this.user.email,
       avatar: this.user.avatar
     };

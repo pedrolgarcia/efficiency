@@ -1,3 +1,11 @@
 export class Profile {
-    constructor(id_usuario: number, nome: string, senha: string, email: string, avatar?: string) {}
+    constructor(
+        id: number,
+        name: string,
+        email: string,
+        password?: string,
+        avatar?: string,
+        created_at?: string,
+        updated_at?: string
+    ) {}
 }
