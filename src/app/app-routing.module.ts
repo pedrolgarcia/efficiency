@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthGuard } from './login/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },

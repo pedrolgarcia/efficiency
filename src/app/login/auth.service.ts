@@ -2,15 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 import { BASE_URL } from '../app.api';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Profile } from '../profile/profile.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   isLogged(): boolean {
     return localStorage.getItem('user') ? true : false;
@@ -32,7 +33,17 @@ export class AuthService {
   }
 
   logout(): void {
-    this.http.get(`${BASE_URL}/logout`).subscribe(response => console.log(response));
+    this.http.get(`${BASE_URL}/logout`).subscribe(response => {
+      localStorage.clear();
+      this.router.navigate(['/login']);
+    });
+  }
+
+  refreshToken(): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/refresh`, {})
+      .pipe(tap(data => {
+        localStorage.setItem('token', data.access_token);
+      }));
   }
 
   getUser(): Profile {

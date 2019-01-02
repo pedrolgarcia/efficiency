@@ -1,8 +1,8 @@
 import { HomePage } from './../home/home.page';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MenuController, NavController } from '@ionic/angular';
-import { RouterModule, Router } from '@angular/router';
+import { MenuController } from '@ionic/angular';
+import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertService } from '../shared/alert/alert.service';
@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
               private menuCtrl: MenuController,
               private authService: AuthService,
               private alertService: AlertService) {
-    this.menuCtrl.enable(false); 
+    this.menuCtrl.enable(false);
   }
 
   ngOnInit() {

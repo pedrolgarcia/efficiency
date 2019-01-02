@@ -1,11 +1,12 @@
 export class Profile {
     constructor(
-        id: number,
-        name: string,
-        email: string,
-        password?: string,
-        avatar?: string,
-        created_at?: string,
-        updated_at?: string
+        public id: number,
+        public name: string,
+        public email: string,
+        public email_verified_at?: string,
+        public password?: string,
+        public avatar?: string,
+        public created_at?: string,
+        public updated_at?: string
     ) {}
 }

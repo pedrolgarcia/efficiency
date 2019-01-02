@@ -11,18 +11,22 @@ export class ProfilePage implements OnInit {
 
   profile: Profile;
 
-  constructor(private profileService: ProfileService) {
-    this.profile = {
-      id_usuario: 1,
-      nome: 'Pedro',
-      senha: '123456',
-      email: 'teste@teste.com.br',
-      avatar: 'src/assets/users/profile.png'
-    };
-    this.profileService.getUsers().subscribe(data => console.log(JSON.stringify(data)));
-  }
+  constructor(private profileService: ProfileService) {}
 
   ngOnInit() {
+    this.profileService.getUser().subscribe(response => {
+      this.profile = new Profile(
+        response.id,
+        response.name,
+        response.email,
+        response.email_verified_at,
+        null,
+        response.avatar,
+        response.created_at,
+        response.updated_at
+      );
+    });
+    console.log(this.profile);
   }
 
 }

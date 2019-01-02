@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(private authService: AuthService) {
     this.user = this.authService.getUser();
-    console.log(this.user);
+
     this.profile = {
       id: this.user.id,
       name: this.user.name,

@@ -1,4 +1,4 @@
-import { NgModule, LOCALE_ID } from '@angular/core';
+import { NgModule, LOCALE_ID, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
@@ -9,9 +9,12 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
-import { AuthGuard } from './login/auth.guard';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthGuard } from './shared/guards/auth.guard';
 import { HomePageModule } from './home/home.module';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { RefreshTokenInterceptor } from './shared/interceptors/refresh-token.interceptor';
+import { ErrorHandlerService } from './error-handler.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -28,7 +31,10 @@ import { HomePageModule } from './home/home.module';
     SplashScreen,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AuthGuard
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },
+    { provide: ErrorHandler, useClass: ErrorHandlerService }
   ],
   bootstrap: [AppComponent]
 })

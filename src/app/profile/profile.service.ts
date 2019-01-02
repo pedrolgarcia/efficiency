@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import { HTTP } from '@ionic-native/http/ngx';
 import { Http, Headers } from '@angular/http';
 import { Observable } from 'rxjs';
 import { Profile } from './profile.model';
@@ -14,7 +13,7 @@ export class ProfileService {
 
   constructor(private http: HttpClient) { }
 
-  getUsers() {
-    return this.http.get(`${BASE_URL}/profile`);
+  getUser(): Observable<Profile> {
+    return this.http.get<any>(`${BASE_URL}/me`);
   }
 }
