@@ -10,9 +10,9 @@
             <ion-label>Nome: </ion-label>
           </ion-col>
           <ion-col size="9" no-padding>
-            <ion-item>
+            <app-input errorMessage="O nome é obrigatório">
               <ion-input type="text" formControlName="name" placeholder="Digite seu nome"></ion-input>
-            </ion-item>
+            </app-input>
           </ion-col>
           </ion-row>
 
@@ -21,9 +21,9 @@
             <ion-label>E-mail: </ion-label>
           </ion-col>
           <ion-col size="9" no-padding>
-            <ion-item>
+            <app-input errorMessage="E-mail inválido">
               <ion-input type="email" formControlName="email" placeholder="Digite seu e-mail"></ion-input>
-            </ion-item>
+            </app-input>
           </ion-col>
         </ion-row>
 
@@ -32,9 +32,9 @@
             <ion-label>Senha: </ion-label>
           </ion-col>
           <ion-col size="9" no-padding>
-            <ion-item>
+            <app-input errorMessage="A senha deve conter pelo menos 6 caracteres">
               <ion-input type="password" formControlName="password" placeholder="Digite sua senha"></ion-input>
-            </ion-item>
+            </app-input>
           </ion-col>
         </ion-row>
 
@@ -43,14 +43,14 @@
             <ion-label style="white-space: normal;">Confirmar senha: </ion-label>
           </ion-col>
           <ion-col size="9" no-padding>
-            <ion-item>
+            <app-input errorMessage="A senha deve conter pelo menos 6 caracteres">
               <ion-input type="password" formControlName="passwordConfirmation" placeholder="Confirme sua senha"></ion-input>
-            </ion-item>
+            </app-input>
           </ion-col>
         </ion-row>
 
           <div padding>
-            <ion-button type="submit" size="default" expand="block" color="light" style="margin: 20px 0px;"><span class="azul">Criar conta</span></ion-button>
+            <ion-button type="submit" size="default" expand="block" color="light" [disabled]="registerForm.invalid" style="margin: 20px 0px;"><span class="azul">Criar conta</span></ion-button>
             <ion-button size="default" color="light" expand="block" [routerLink]="[ '/login' ]" style="margin: 20px 0px;"><span class="azul">Cancelar</span></ion-button>
           </div>
         </form>

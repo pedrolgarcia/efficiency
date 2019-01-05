@@ -27,9 +27,6 @@ export class AuthService {
 
   register(user): Observable<any> {
     return this.http.post<any>(`${BASE_URL}/register`, user);
-      // .pipe(tap(data => {
-
-      // }));
   }
 
   logout(): void {
@@ -51,7 +48,7 @@ export class AuthService {
   }
 
   setUser(): any {
-    this.http.get<any>(`${BASE_URL}/me`).toPromise()
+    this.http.get<any>(`${BASE_URL}/users`).toPromise()
       .then(data => {
         if (data.user) {
           localStorage.setItem('user', btoa(JSON.stringify(data.user)));

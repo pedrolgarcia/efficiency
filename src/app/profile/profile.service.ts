@@ -14,6 +14,6 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   getUser(): Observable<Profile> {
-    return this.http.get<any>(`${BASE_URL}/me`);
+    return this.http.get<any>(`${BASE_URL}/users`);
   }
 }

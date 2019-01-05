@@ -13,7 +13,8 @@ import { AlertService } from '../shared/alert/alert.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  // isLogged: boolean = false;
+  // tslint:disable-next-line:max-line-length
+  emailRegex: any = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
   loginForm: FormGroup;
 
   constructor(private route: Router,
@@ -26,11 +27,11 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     if (this.authService.isLogged) {
-      this.route.navigate(['home']);
+      this.route.navigate(['/']);
    }
 
     this.loginForm = this.formBuilder.group({
-      email: this.formBuilder.control('', [Validators.required, Validators.email]),
+      email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailRegex)]),
       password: this.formBuilder.control('', [Validators.required])
     });
   }
@@ -38,13 +39,7 @@ export class LoginPage implements OnInit {
   onSubmit() {
     this.authService.login(this.loginForm.value).subscribe(response => {
       this.menuCtrl.enable(true);
-      this.route.navigate(['home']);
-    }, (errorResponse: HttpErrorResponse) => {
-      this.alertService.header = 'Falha na autenticação';
-      this.alertService.message = errorResponse.error.error;
-      this.alertService.buttons = ['OK'];
-      this.alertService.presentAlert();
-      console.log(errorResponse);
+      this.route.navigate(['/']);
     });
   }
 

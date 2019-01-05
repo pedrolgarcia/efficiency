@@ -9,7 +9,7 @@ export class AlertService {
   header: string;
   subHeader: string;
   message: string;
-  buttons: string[];
+  buttons: any[];
 
   constructor(private alertController: AlertController) { }
 

@@ -1,12 +1,13 @@
-export class Profile {
-    constructor(
-        public id: number,
-        public name: string,
-        public email: string,
-        public email_verified_at?: string,
-        public password?: string,
-        public avatar?: string,
-        public created_at?: string,
-        public updated_at?: string
-    ) {}
+export interface Profile {
+    id: number;
+    name: string;
+    email: string;
+    totalProjects?: number;
+    totalTasks?: number;
+    overdueTasks?: number;
+    email_verified_at?: string;
+    password?: string;
+    avatar?: string;
+    created_at?: string;
+    updated_at?: string;
 }

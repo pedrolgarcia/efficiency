@@ -11,7 +11,7 @@ import { AuthService } from './login/auth.service';
 })
 export class AppComponent {
   public appPages = [
-    { title: 'Meu feed', url: '/home', icon: 'home' },
+    { title: 'Meu feed', url: '/', icon: 'home' },
     { title: 'Cadastrar Projeto', url: '/project-create', icon: 'clipboard' },
     { title: 'Cadastrar Tarefa', url: '/task-create', icon: 'filing' },
     { title: 'Calendário', url: '/login', icon: 'calendar' },

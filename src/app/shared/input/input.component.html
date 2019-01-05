@@ -1,0 +1,15 @@
+<!--<div class="form-group" [class.has-success]="hasSuccess()"
+                        [class.has-error]="hasError()">
+  <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> {{ label }}</label>
+  <ng-content></ng-content>
+  <span class="help-block" *ngIf="hasSuccess()"><i class="fa fa-check"></i> Ok</span>
+  <span class="help-block" *ngIf="hasError()"><i class="fa fa-remove"></i> {{ errorMessage }}</span>
+</div>-->
+
+<ion-item>
+  <ion-icon *ngIf="icon" [name]="icon"></ion-icon>
+  <ng-content></ng-content>
+  <ion-icon *ngIf="hasSuccess()" class="icon-validation" name="checkmark" color="secondary"></ion-icon>
+  <ion-icon *ngIf="hasError()" class="icon-validation" name="close" color="danger"></ion-icon>
+</ion-item>
+<ion-label class="message-validation" *ngIf="hasError()" color="danger" >{{ errorMessage }}</ion-label>

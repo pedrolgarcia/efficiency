@@ -6,9 +6,9 @@ const routes: Routes = [
   { path: 'login', loadChildren: './login/login.module#LoginPageModule' },
   { path: 'register', loadChildren: './login/register/register.module#RegisterPageModule' },
   { path: 'forgot', loadChildren: './login/forgot/forgot.module#ForgotPageModule' },
-  { path: '', canActivate: [AuthGuard], canActivateChild: [AuthGuard],
+  { path: '' , canActivate: [AuthGuard], canActivateChild: [AuthGuard],
     children: [
-      { path: 'home', loadChildren: './home/home.module#HomePageModule' },
+      { path: '', loadChildren: './home/home.module#HomePageModule' },
       { path: 'profile', loadChildren: './profile/profile.module#ProfilePageModule' },
       { path: 'profile-edit', loadChildren: './profile/profile-edit/profile-edit.module#ProfileEditPageModule' },
       { path: 'project', loadChildren: './project/project.module#ProjectPageModule' },

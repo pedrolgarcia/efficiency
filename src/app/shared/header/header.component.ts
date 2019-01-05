@@ -9,21 +9,12 @@ import { AuthService } from '../../login/auth.service';
 })
 export class HeaderComponent implements OnInit {
   profile: Profile;
-  user: any;
 
   constructor(private authService: AuthService) {
-    this.user = this.authService.getUser();
-
-    this.profile = {
-      id: this.user.id,
-      name: this.user.name,
-      email: this.user.email,
-      avatar: this.user.avatar
-    };
+    this.profile = this.authService.getUser();
   }
 
   ngOnInit() {
-    console.log(this.profile);
   }
 
 }
