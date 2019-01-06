@@ -7,20 +7,20 @@
     <ion-card-header no-padding padding-horizontal>
       <ion-row align-items-center>
         <ion-col size="12">
-          <ion-card-title>Nome do projeto</ion-card-title>
+          <ion-card-title>{{ project?.name }}</ion-card-title>
         </ion-col>
       </ion-row>
       <ion-row margin-top>
         <ion-col size="6">
           <ion-label no-margin>Data de Início:</ion-label>
           <ion-item style="border-bottom: 1px solid #fff;">
-            <ion-datetime displayFormat="DD/MM/YYYY" value="2018-10-10" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+            <ion-datetime displayFormat="DD/MM/YYYY" [value]="project?.started_at" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
           </ion-item>
         </ion-col>
         <ion-col size="6">
           <ion-label no-margin>Data de Entrega:</ion-label>
           <ion-item style="border-bottom: 1px solid #fff;">
-            <ion-datetime displayFormat="DD/MM/YYYY" value="2018-10-10" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+            <ion-datetime displayFormat="DD/MM/YYYY" [value]="project?.ended_at" disabled doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -28,21 +28,21 @@
         <ion-label>Descrição:</ion-label>
       </ion-row>
       <ion-row class="project-card-content" padding margin-bottom>
-        <ion-textarea disabled readonly rows="4" text-justify value="Lorem ipsum viverra porta aliquam fringilla ligula nam semper, lacinia rhoncus eleifend pharetra volutpat sagittis tempus, condimentum inceptos vestibulum quisque scelerisque habitant curabitur. maecenas nostra per ad id curabitur"></ion-textarea>
+        <ion-textarea disabled readonly rows="4" text-justify [value]="project?.description"></ion-textarea>
       </ion-row>
       <ion-row margin-bottom>
         <ion-col size="4">
-          <ion-button color="success" size="small" expand="block" [routerLink]="['/project']" style="text-transform: none; font-weight: bold;">
+          <ion-button color="success" size="small" expand="block" (click)="finishProject(project?.id)" style="text-transform: none; font-weight: bold;">
             <ion-icon name="checkmark"></ion-icon><span> Finalizar</span>
           </ion-button>
         </ion-col>
         <ion-col size="4">
-          <ion-button color="warning" size="small" expand="block" [routerLink]="['/project-edit']" style="text-transform: none; font-weight: bold;">
+          <ion-button color="warning" size="small" expand="block" [routerLink]="['/project-edit', project?.id]" style="text-transform: none; font-weight: bold;">
             <ion-icon name="create"></ion-icon><span> Editar</span>
           </ion-button>
         </ion-col>
         <ion-col size="4">
-          <ion-button color="danger" size="small" expand="block" [routerLink]="['/project']" style="text-transform: none; font-weight: bold;">
+          <ion-button color="danger" size="small" expand="block" (click)="deleteProject(project?.id)" style="text-transform: none; font-weight: bold;">
             <ion-icon name="trash"></ion-icon><span> Excluir</span>
           </ion-button>
         </ion-col>
@@ -53,22 +53,32 @@
       </ion-row>
     </ion-card-header>
 
-    <ion-card-content (click)="detailTask()" class="project-card-content" padding margin *ngFor="let task of tasks">
-      <ion-row>
-        <ion-col size="6" no-padding>
-          <ion-label>
-            <ion-icon name="create" color="primary"></ion-icon> Tarefa
-          </ion-label>
-        </ion-col>
-        <ion-col size="6" no-padding>
-          <ion-label>
-            <ion-icon name="calendar" color="primary"></ion-icon> 12/12/2018
-          </ion-label>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-textarea disabled readonly rows="4" text-justify value="Lorem ipsum viverra porta aliquam fringilla ligula nam semper, lacinia rhoncus eleifend pharetra volutpat sagittis tempus, condimentum inceptos vestibulum quisque scelerisque habitant curabitur. maecenas nostra per ad id curabitur"></ion-textarea>
-      </ion-row>
+    <ion-card-content class="project-card-content" padding margin *ngIf="project?.tasks.length == 0">
+        <ion-row>
+          <ion-col size="12" text-center no-padding>
+            <ion-label class="disabled-label">Nenhuma tarefa encontrada para este projeto</ion-label>
+          </ion-col>
+        </ion-row>
     </ion-card-content>
+
+    <ng-template [ngIf]="project?.tasks.length > 0">
+      <ion-card-content (click)="detailTask(task.id)" class="project-card-content" padding margin *ngFor="let task of project.tasks">
+        <ion-row>
+          <ion-col size="6" no-padding>
+            <ion-label>
+              <ion-icon name="create" color="primary"></ion-icon> {{ task.name }}
+            </ion-label>
+          </ion-col>
+          <ion-col size="6" no-padding>
+            <ion-label>
+              <ion-icon name="calendar" color="primary"></ion-icon> {{ task.started_at }}
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-textarea disabled readonly rows="4" text-justify [value]="task.description"></ion-textarea>
+        </ion-row>
+      </ion-card-content>
+    </ng-template>
   </ion-card>
 </ion-content>

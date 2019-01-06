@@ -14,6 +14,10 @@ export class ProfileService {
   constructor(private http: HttpClient) { }
 
   getUser(): Observable<Profile> {
-    return this.http.get<any>(`${BASE_URL}/users`);
+    return this.http.get<any>(`${BASE_URL}/me`);
+  }
+
+  editUser(user): Observable<any> {
+    return this.http.put(`${BASE_URL}/me`, user);
   }
 }

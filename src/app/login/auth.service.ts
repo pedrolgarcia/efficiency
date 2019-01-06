@@ -48,10 +48,10 @@ export class AuthService {
   }
 
   setUser(): any {
-    this.http.get<any>(`${BASE_URL}/users`).toPromise()
+    this.http.get<any>(`${BASE_URL}/user`).toPromise()
       .then(data => {
-        if (data.user) {
-          localStorage.setItem('user', btoa(JSON.stringify(data.user)));
+        if (data) {
+          localStorage.setItem('user', btoa(JSON.stringify(data)));
           return true;
         }
         return false;

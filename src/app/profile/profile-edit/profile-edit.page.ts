@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ProfileService } from '../profile.service';
+import { AuthService } from '../../login/auth.service';
+import { Router } from '@angular/router';
+import { AlertService } from '../../shared/alert/alert.service';
 
 @Component({
   selector: 'app-profile-edit',
@@ -9,19 +13,40 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class ProfileEditPage implements OnInit {
 
   editProfileForm: FormGroup;
+  alphabeticRegex: '/^[A-Z]+$/i';
+  changePassword = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private profileService: ProfileService,
+    private authService: AuthService,
+    private router: Router,
+    private alert: AlertService
+  ) { }
 
   ngOnInit() {
     this.editProfileForm = this.formBuilder.group({
-      name: this.formBuilder.control(''),
-      password: this.formBuilder.control(''),
-      confirmPassword: this.formBuilder.control(''),
+      name: this.formBuilder.control(this.authService.getUser().name, [Validators.pattern(this.alphabeticRegex)]),
+      changePassword: this.formBuilder.control(''),
+      oldPassword: this.formBuilder.control('', [Validators.minLength(6)]),
+      password: this.formBuilder.control('', [Validators.minLength(6)]),
+      confirmPassword: this.formBuilder.control('', [Validators.minLength(6)])
     });
   }
 
-  editUser(results): void {
-    console.log(results);
+  onSubmit(user): void {
+    this.profileService.editUser(user).subscribe(response => {
+      this.authService.setUser();
+
+      this.alert.header = response.success;
+      this.alert.message = response.message;
+      this.alert.buttons = [{ text: 'OK', handler: () => this.router.navigate(['/profile']) }];
+      this.alert.presentAlert();
+    });
+  }
+
+  showPasswordFields(e) {
+    this.changePassword = e.target.checked;
   }
 
 }

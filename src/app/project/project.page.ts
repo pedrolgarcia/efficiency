@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Project } from './project.model';
+import { ProjectService } from './project.service';
 
 @Component({
   selector: 'app-project',
@@ -7,15 +9,32 @@ import { Router } from '@angular/router';
   styleUrls: ['./project.page.scss'],
 })
 export class ProjectPage implements OnInit {
-  tasks: Number[] = [1, 2, 3];
 
-  constructor(private route: Router) { }
+  project: Project;
+
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private projectService: ProjectService
+  ) { }
 
   ngOnInit() {
+    this.projectService.getProject(this.route.snapshot.params['id'])
+      .subscribe(response => {
+        this.project = response;
+      });
   }
 
-  detailTask() {
-    this.route.navigate(['task']);
+  detailTask(id) {
+    this.router.navigate([`/task/${id}`]);
+  }
+
+  finishProject(id) {
+    console.log(id);
+  }
+
+  deleteProject(id) {
+    console.log(id);
   }
 
 }

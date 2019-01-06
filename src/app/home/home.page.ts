@@ -1,13 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProjectService } from '../project/project.service';
+import { Project } from '../project/project.model';
+import { Task } from '../task/task.model';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
-  projects = [1, 2, 3];
-  tasks = [1, 2, 3, 4];
+  projects: Project;
+
+  constructor(private projectService: ProjectService) { }
+
+  ngOnInit() {
+    this.projectService.getProjects().subscribe(response => {
+      this.projects = response;
+    });
+  }
 
 }
