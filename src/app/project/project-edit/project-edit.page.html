@@ -5,7 +5,7 @@
   <ion-card color="primary" margin-top>
     <ion-card-header class="page-title" padding text-center>Editar Projeto</ion-card-header>
 
-    <form no-padding padding-bottom padding-horizontal [formGroup]="editProjectForm">
+    <form no-padding padding-bottom padding-horizontal [formGroup]="editProjectForm" (ngSubmit)="onSubmit()">
       <ion-row>
         <ion-col size="4" align-self-center>
           <ion-label>Nome: </ion-label>
@@ -55,17 +55,17 @@
 
       <ion-card-content class="project-card-content" padding margin-top>
         <ion-row>
-          <ion-textarea name="descricao" rows="7" text-justify placeholder="Digite a descrição do projeto"></ion-textarea>
+          <ion-textarea formControlName="descricao" rows="7" text-justify placeholder="Digite a descrição do projeto"></ion-textarea>
         </ion-row>
       </ion-card-content>
       <ion-row padding-top>
           <ion-col size="6">
-            <ion-button color="success" size="default" expand="block">
+            <ion-button type="submit" color="success" size="default" expand="block">
               <ion-icon name="checkmark"></ion-icon><span>Editar</span>
             </ion-button>
           </ion-col>
           <ion-col size="6">
-            <ion-button color="danger" size="default" expand="block">
+            <ion-button type="reset" color="danger" size="default" expand="block">
               <ion-icon name="close"></ion-icon><span>Limpar</span>
             </ion-button>
           </ion-col>

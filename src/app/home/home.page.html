@@ -3,7 +3,31 @@
 <ion-content padding-bottom padding-horizontal>
   <ion-title class="page-title-separated" padding text-center>Meu Feed</ion-title>
 
-  <ion-card color="primary" *ngIf="!projects" margin-top>
+  <!--<form padding [formGroup]="searchForm">
+    <ion-row>
+      <ion-col size="12">
+        <ion-item style="--highlight-color-focused: unset;">
+          <ion-icon name="search" style="color: #98BDFF;"></ion-icon>
+          <ion-input type="text" formControlName="search" placeholder="Buscar projeto" style="color: #98BDFF; font-weight: bold; --placeholder-opacity: 1;"></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </form>-->
+
+  <ion-row>
+    <ion-col size="12">
+      <ion-item style="color: #98BDFF; font-weight: bold;">
+        <ion-label>Filtrar projetos:</ion-label>
+        <ion-select value="0" (ionChange)="onFilter($event)" okText="Filtrar" cancelText="Fechar" style="color: #98BDFF; font-weight: bold;">
+          <ion-select-option value="0">Todos</ion-select-option>
+          <ion-select-option value="1">Em andamento</ion-select-option>
+          <ion-select-option value="2">Finalizados</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+  <ion-card color="primary" *ngIf="!projects && !noProject" margin-top>
     <ion-card-header no-padding padding-vertical padding-horizontal>
       <ion-row align-items-center>
         <ion-col size="12" text-center>
@@ -16,7 +40,19 @@
     </ion-card-header>
   </ion-card>
 
-  <ng-template [ngIf]="projects">
+  <ion-card color="primary" *ngIf="noProject" margin-top>
+    <ion-card-header no-padding padding-vertical padding-horizontal>
+      <ion-row align-items-center>
+        <ion-col size="12" text-center>
+          <ion-text>
+            <h5>{{ noProject }}</h5>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+  </ion-card>
+
+  <ng-template [ngIf]="projects && !noProject">
     <ion-card color="primary" *ngFor="let project of projects" margin-top>
       <ion-card-header>
         <ion-row align-items-center>
@@ -25,6 +61,14 @@
           </ion-col>
           <ion-col size="4" text-end>
             <ion-button color="light" size="small" [routerLink]="['/project', project.id]" style="text-transform: none;"><span class="azul">Ver projeto</span></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="12">
+            <ion-card-subtitle>
+              <ion-badge *ngIf="project?.status.id === 1" color="success">{{ project?.status.status }}</ion-badge>
+              <ion-badge *ngIf="project?.status.id === 2" color="danger">{{ project?.status.status }}</ion-badge>
+            </ion-card-subtitle>
           </ion-col>
         </ion-row>
       </ion-card-header>

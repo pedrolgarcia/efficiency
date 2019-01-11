@@ -20,4 +20,24 @@ export class ProjectService {
     return this.http.get<any>(`${BASE_URL}/projects/${id}`);
   }
 
+  filter(filter): Observable<Project> {
+    return this.http.post<any>(`${BASE_URL}/projects/filter`, {filter});
+  }
+
+  editProject(id, data: Project): Observable<any> {
+    return this.http.put<any>(`${BASE_URL}/projects/${id}`, {data});
+  }
+
+  finishProject(id): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/projects/${id}/finish`, {});
+  }
+
+  deleteProject(id): Observable<any> {
+    return this.http.delete<any>(`${BASE_URL}/projects/${id}`);
+  }
+
+  backToProject(id): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/projects/${id}/back`, {});
+  }
+
 }

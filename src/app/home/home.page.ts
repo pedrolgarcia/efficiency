@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../project/project.service';
 import { Project } from '../project/project.model';
-import { Task } from '../task/task.model';
+import { FormGroup, FormBuilder } from '@angular/forms';
+import { debounceTime, switchMap, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +12,55 @@ import { Task } from '../task/task.model';
 export class HomePage implements OnInit {
 
   projects: Project;
+  noProject = null;
+  searchForm: FormGroup;
+  filter: string;
+  searchText: string;
 
-  constructor(private projectService: ProjectService) { }
+  constructor(private projectService: ProjectService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.searchForm = this.formBuilder.group({
+      search: this.formBuilder.control('')
+    });
+
+    // this.searchForm.get('search').valueChanges
+    //   .pipe(
+    //     debounceTime(300),
+    //     switchMap(value => {
+    //       this.searchText = value;
+    //       return this.projectService.filter({ filter: this.filter, text: this.searchText });
+    //     })
+    //   )
+    //   .subscribe(response => {
+    //     this.projects = response;
+    //     this.noProject = null;
+    //   }, error => {
+    //     this.noProject = error.error.message;
+    //     this.projects = null;
+    //   });
+
     this.projectService.getProjects().subscribe(response => {
       this.projects = response;
     });
+  }
+
+  onFilter(e) {
+    this.filter = e.target.value;
+    if (this.filter !== '0') {
+      this.projectService.filter(this.filter)
+      .subscribe(response => {
+        this.projects = response;
+        this.noProject = null;
+      }, error => {
+        this.noProject = error.error.message;
+        this.projects = null;
+      });
+    } else {
+      this.projectService.getProjects().subscribe(response => {
+        this.projects = response;
+      });
+    }
   }
 
 }

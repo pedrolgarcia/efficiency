@@ -10,6 +10,14 @@
           <ion-card-title>{{ project?.name }}</ion-card-title>
         </ion-col>
       </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card-subtitle> 
+            <ion-badge *ngIf="project?.status.id === 1" color="success">{{ project?.status.status }}</ion-badge>
+            <ion-badge *ngIf="project?.status.id === 2" color="danger">{{ project?.status.status }}</ion-badge>
+          </ion-card-subtitle>
+        </ion-col>
+      </ion-row>
       <ion-row margin-top>
         <ion-col size="6">
           <ion-label no-margin>Data de Início:</ion-label>
@@ -32,8 +40,11 @@
       </ion-row>
       <ion-row margin-bottom>
         <ion-col size="4">
-          <ion-button color="success" size="small" expand="block" (click)="finishProject(project?.id)" style="text-transform: none; font-weight: bold;">
+          <ion-button *ngIf="project?.status.id === 1" color="success" size="small" expand="block" (click)="finishProject()" style="text-transform: none; font-weight: bold;">
             <ion-icon name="checkmark"></ion-icon><span> Finalizar</span>
+          </ion-button>
+          <ion-button *ngIf="project?.status.id === 2" color="success" size="small" expand="block" (click)="backToProject()" style="text-transform: none; font-weight: bold;">
+            <ion-icon name="checkmark"></ion-icon><span> Voltar a fazer</span>
           </ion-button>
         </ion-col>
         <ion-col size="4">
@@ -42,7 +53,7 @@
           </ion-button>
         </ion-col>
         <ion-col size="4">
-          <ion-button color="danger" size="small" expand="block" (click)="deleteProject(project?.id)" style="text-transform: none; font-weight: bold;">
+          <ion-button color="danger" size="small" expand="block" (click)="deleteProject()" style="text-transform: none; font-weight: bold;">
             <ion-icon name="trash"></ion-icon><span> Excluir</span>
           </ion-button>
         </ion-col>
