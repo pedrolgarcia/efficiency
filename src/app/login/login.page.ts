@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertService } from '../shared/alert/alert.service';
+import { Regex } from '../regex';
 
 @Component({
   selector: 'app-login',
@@ -13,25 +14,24 @@ import { AlertService } from '../shared/alert/alert.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  // tslint:disable-next-line:max-line-length
-  emailRegex: any = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
   loginForm: FormGroup;
 
   constructor(private route: Router,
               private formBuilder: FormBuilder,
               private menuCtrl: MenuController,
               private authService: AuthService,
-              private alertService: AlertService) {
-    this.menuCtrl.enable(false);
-  }
+              private alertService: AlertService,
+  ) { }
 
   ngOnInit() {
+    this.menuCtrl.enable(false);
+
     if (this.authService.isLogged) {
       this.route.navigate(['/']);
    }
 
     this.loginForm = this.formBuilder.group({
-      email: this.formBuilder.control('', [Validators.required, Validators.pattern(this.emailRegex)]),
+      email: this.formBuilder.control('', [Validators.required, Validators.pattern(new Regex().emailRegex)]),
       password: this.formBuilder.control('', [Validators.required])
     });
   }

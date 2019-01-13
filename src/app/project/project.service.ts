@@ -40,4 +40,8 @@ export class ProjectService {
     return this.http.post<any>(`${BASE_URL}/projects/${id}/back`, {});
   }
 
+  createProject(data): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/projects`, { data });
+  }
+
 }

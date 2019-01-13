@@ -4,6 +4,7 @@ import { ProfileService } from '../profile.service';
 import { AuthService } from '../../login/auth.service';
 import { Router } from '@angular/router';
 import { AlertService } from '../../shared/alert/alert.service';
+import { Regex } from '../../regex';
 
 @Component({
   selector: 'app-profile-edit',
@@ -13,7 +14,6 @@ import { AlertService } from '../../shared/alert/alert.service';
 export class ProfileEditPage implements OnInit {
 
   editProfileForm: FormGroup;
-  alphabeticRegex: '/^[A-Z]+$/i';
   changePassword = false;
 
   constructor(
@@ -21,12 +21,13 @@ export class ProfileEditPage implements OnInit {
     private profileService: ProfileService,
     private authService: AuthService,
     private router: Router,
-    private alert: AlertService
+    private alert: AlertService,
+    private regex: Regex
   ) { }
 
   ngOnInit() {
     this.editProfileForm = this.formBuilder.group({
-      name: this.formBuilder.control(this.authService.getUser().name, [Validators.pattern(this.alphabeticRegex)]),
+      name: this.formBuilder.control(this.authService.getUser().name, [Validators.pattern(new Regex().alphabeticRegex)]),
       changePassword: this.formBuilder.control(''),
       oldPassword: this.formBuilder.control('', [Validators.minLength(6)]),
       password: this.formBuilder.control('', [Validators.minLength(6)]),

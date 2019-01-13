@@ -15,6 +15,7 @@ import { HomePageModule } from './home/home.module';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { RefreshTokenInterceptor } from './shared/interceptors/refresh-token.interceptor';
 import { ErrorHandlerService } from './error-handler.service';
+import { Regex } from './regex';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -34,7 +35,8 @@ import { ErrorHandlerService } from './error-handler.service';
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: RefreshTokenInterceptor, multi: true },
-    { provide: ErrorHandler, useClass: ErrorHandlerService }
+    { provide: ErrorHandler, useClass: ErrorHandlerService },
+    Regex
   ],
   bootstrap: [AppComponent]
 })

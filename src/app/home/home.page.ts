@@ -39,7 +39,9 @@ export class HomePage implements OnInit {
     //     this.noProject = error.error.message;
     //     this.projects = null;
     //   });
+  }
 
+  ionViewWillEnter() {
     this.projectService.getProjects().subscribe(response => {
       this.projects = response;
     });
