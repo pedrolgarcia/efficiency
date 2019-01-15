@@ -57,7 +57,8 @@ export class ProjectPage implements OnInit {
   }
 
   deleteProject(id) {
-    this.alert.header = 'Deseja mesmo excluir o projeto?';
+    this.alert.header = 'Deseja mesmo excluir este projeto?';
+    this.alert.message = '';
 
     if (this.project.status.id === 1) {
       this.alert.header = 'Cuidado, seu projeto está em andamento!';

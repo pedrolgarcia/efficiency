@@ -1,12 +1,15 @@
+import { Status } from '../project/status.model';
+import { Category } from './category';
+
 export interface Task {
     id: number;
     name: string;
     description: string;
     started_at: string;
     ended_at: string;
-    category: string;
-    project: string;
-    status: string;
+    category: Category;
+    project_id: number;
+    status: Status;
     completed_at?: string;
     time?: string;
     deleted_at?: string;

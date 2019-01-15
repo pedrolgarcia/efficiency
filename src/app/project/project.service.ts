@@ -28,6 +28,10 @@ export class ProjectService {
     return this.http.put<any>(`${BASE_URL}/projects/${id}`, {data});
   }
 
+  createProject(data): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/projects`, { data });
+  }
+
   finishProject(id): Observable<any> {
     return this.http.post<any>(`${BASE_URL}/projects/${id}/finish`, {});
   }
@@ -38,10 +42,6 @@ export class ProjectService {
 
   backToProject(id): Observable<any> {
     return this.http.post<any>(`${BASE_URL}/projects/${id}/back`, {});
-  }
-
-  createProject(data): Observable<any> {
-    return this.http.post<any>(`${BASE_URL}/projects`, { data });
   }
 
 }

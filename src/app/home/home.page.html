@@ -27,7 +27,7 @@
     </ion-col>
   </ion-row>
 
-  <ion-card color="primary" *ngIf="!projects && !noProject" margin-top>
+  <ion-card color="primary" *ngIf="projects?.length == 0 && !noProject" margin-top>
     <ion-card-header no-padding padding-vertical padding-horizontal>
       <ion-row align-items-center>
         <ion-col size="12" text-center>
@@ -52,7 +52,7 @@
     </ion-card-header>
   </ion-card>
 
-  <ng-template [ngIf]="projects && !noProject">
+  <ng-template [ngIf]="projects?.length > 0 && !noProject">
     <ion-card color="primary" *ngFor="let project of projects" margin-top>
       <ion-card-header>
         <ion-row align-items-center>

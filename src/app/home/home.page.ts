@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../project/project.service';
 import { Project } from '../project/project.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { debounceTime, switchMap, mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
@@ -43,8 +42,8 @@ export class HomePage implements OnInit {
 
   ionViewWillEnter() {
     this.projectService.getProjects().subscribe(response => {
-      this.projects = response;
-    });
+        this.projects = response;
+      });
   }
 
   onFilter(e) {

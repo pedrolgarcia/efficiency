@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ProjectService } from '../project.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Project } from '../project.model';
 import { AlertService } from '../../shared/alert/alert.service';
+import { Regex } from '../../regex';
 
 @Component({
   selector: 'app-project-edit',
@@ -20,13 +21,14 @@ export class ProjectEditPage implements OnInit {
     private projectService: ProjectService,
     private route: ActivatedRoute,
     private alert: AlertService,
-    private router: Router
+    private router: Router,
+    private regex: Regex
   ) {
     this.editProjectForm = this.formBuilder.group({
-      nome: this.formBuilder.control(''),
-      inicio: this.formBuilder.control(''),
-      entrega: this.formBuilder.control(''),
-      descricao: this.formBuilder.control('')
+      nome: this.formBuilder.control('', [Validators.required, Validators.pattern(this.regex.alphabeticRegex)]),
+      inicio: this.formBuilder.control('', [Validators.required]),
+      entrega: this.formBuilder.control('', [Validators.required]),
+      descricao: this.formBuilder.control('', [Validators.required])
     });
 
     this.projectService.getProject(this.route.snapshot.params['id'])

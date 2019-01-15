@@ -5,15 +5,15 @@
   <ion-card color="primary" margin-top>
     <ion-card-header class="page-title" padding text-center>Editar Tarefa</ion-card-header>
 
-    <form no-padding padding-bottom padding-horizontal [formGroup]="editTaskForm">
+    <form no-padding padding-bottom padding-horizontal [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
       <ion-row>
         <ion-col size="4" align-self-center>
           <ion-label>Nome: </ion-label>
         </ion-col>
         <ion-col size="8" no-padding>
-          <ion-item>
+          <app-input errorMessage="O nome é obrigatório e deve contar apenas letras">
             <ion-input type="text" formControlName="nome" placeholder="Digite o nome"></ion-input>
-          </ion-item>
+          </app-input>
         </ion-col>
       </ion-row>
 
@@ -23,11 +23,7 @@
         </ion-col>
         <ion-col size="8" no-padding align-self-center>
           <ion-select class="select" formControlName="categoria" cancelText="Cancelar" placeholder="Selecione a categoria">
-            <ion-select-option value="modelagem">Modelagem</ion-select-option>
-            <ion-select-option value="documentar">Documentar</ion-select-option>
-            <ion-select-option value="design">Design</ion-select-option>
-            <ion-select-option value="programacao">Programação</ion-select-option>
-            <ion-select-option value="teste">Teste</ion-select-option>
+            <ion-select-option *ngFor="let category of categories" [value]="category?.id">{{ category?.category }}</ion-select-option>
           </ion-select>
         </ion-col>
       </ion-row>
@@ -38,8 +34,7 @@
         </ion-col>
         <ion-col size="8" no-padding align-self-center>
           <ion-select class="select" formControlName="projeto" cancelText="Cancelar" placeholder="Selecione o projeto">
-            <ion-select-option value="p1">Projeto 1</ion-select-option>
-            <ion-select-option value="p2">Projeto 2</ion-select-option>
+            <ion-select-option *ngFor="let project of projects" [value]="project?.id">{{ project?.name }}</ion-select-option>
           </ion-select>
         </ion-col>
       </ion-row>
@@ -47,31 +42,33 @@
       <ion-row margin-top>
           <ion-col size="6">
             <ion-label no-margin>Data de Início:</ion-label>
-            <ion-item style="border-bottom: 1px solid #fff;">
+            <app-input errorMessage="Data inicial é obrigatória" style="border-bottom: 1px solid #fff;">
               <ion-datetime displayFormat="DD/MM/YYYY" formControlName="inicio" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
-            </ion-item>
+            </app-input>
           </ion-col>
           <ion-col size="6">
             <ion-label no-margin>Data de Entrega:</ion-label>
-            <ion-item style="border-bottom: 1px solid #fff;">
+            <app-input errorMessage="Data de entrega é obrigatória" style="border-bottom: 1px solid #fff;">
               <ion-datetime displayFormat="DD/MM/YYYY" formControlName="entrega" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
-            </ion-item>
+            </app-input>
           </ion-col>
         </ion-row>
 
       <ion-card-content class="project-card-content" padding margin-top>
         <ion-row>
-          <ion-textarea formControlName="descricao" rows="5" text-justify placeholder="Digite a descrição da tarefa"></ion-textarea>
+          <app-input errorMessage="Descrição é obrigatória">
+            <ion-textarea formControlName="descricao" rows="5" text-justify placeholder="Digite a descrição da tarefa"></ion-textarea>
+          </app-input>
         </ion-row>
       </ion-card-content>
       <ion-row padding-top>
         <ion-col size="6">
-          <ion-button color="success" size="default" expand="block">
+          <ion-button type="submit" color="success" size="default" expand="block">
             <ion-icon name="checkmark"></ion-icon><span>Editar</span>
           </ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button color="danger" size="default" expand="block">
+          <ion-button type="reset" color="danger" size="default" expand="block">
             <ion-icon name="close"></ion-icon><span>Limpar</span>
           </ion-button>
         </ion-col>
