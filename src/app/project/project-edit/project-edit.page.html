@@ -62,7 +62,7 @@
       </ion-card-content>
       <ion-row padding-top>
           <ion-col size="6">
-            <ion-button type="submit" color="success" size="default" expand="block">
+            <ion-button type="submit" [disabled]="createProjectForm.invalid" color="success" size="default" expand="block">
               <ion-icon name="checkmark"></ion-icon><span>Editar</span>
             </ion-button>
           </ion-col>
