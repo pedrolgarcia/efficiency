@@ -42,7 +42,7 @@
         </ion-col>
         <ion-col size="8" no-padding align-self-center>
           <ion-item style="border-bottom: 1px solid #fff;">
-            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="data" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="data" disabled placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
           </ion-item>
         </ion-col>
       </ion-row>
@@ -50,17 +50,23 @@
 
       <ion-card-content class="project-card-content" padding margin-top>
         <ion-row>
-          <ion-textarea formControlName="anotacao" rows="11" text-justify placeholder="Digite a anotação"></ion-textarea>
+          <ion-textarea formControlName="anotacao" [value]="annotation ? annotation.annotation.annotation : ''" rows="11" text-justify placeholder="Digite a anotação"></ion-textarea>
         </ion-row>
       </ion-card-content>
       <ion-row padding-top>
         <ion-col size="6">
-          <ion-button color="success" size="default" [disabled]="annotationForm.invalid" (click)="save()" expand="block">
+          <ion-button color="success" size="default" *ngIf="!annotation" [disabled]="annotationForm.invalid" (click)="save()" expand="block">
             <ion-icon name="checkmark"></ion-icon><span>Salvar</span>
+          </ion-button>
+          <ion-button color="warning" size="default" *ngIf="annotation" [disabled]="annotationForm.invalid" (click)="save()" expand="block">
+            <ion-icon name="create"></ion-icon><span>Editar</span>
           </ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button color="danger" size="default" expand="block">
+          <ion-button color="danger" size="default" *ngIf="annotation" (click)="delete()" expand="block">
+            <ion-icon name="trash"></ion-icon><span>Excluir</span>
+          </ion-button>
+          <ion-button color="danger" size="default" *ngIf="!annotation" (click)="reset()" expand="block">
             <ion-icon name="close"></ion-icon><span>Limpar</span>
           </ion-button>
         </ion-col>

@@ -10,7 +10,32 @@ export class ReportService {
 
   constructor(private http: HttpClient) { }
 
-  saveAnnotation(id, data): Observable<any> {
-    return this.http.post<any>(`${BASE_URL}/annotations/${id}`, data);
+  saveAnnotation(taskId, data): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/annotations/${taskId}`, data);
   }
+
+  getAnnotation(taskId): Observable<any> {
+    return this.http.get<any>(`${BASE_URL}/annotations/${taskId}`);
+  }
+
+  deleteAnnotation(taskId): Observable<any> {
+    return this.http.delete<any>(`${BASE_URL}/annotations/${taskId}`);
+  }
+
+  saveTimeReport(taskId, data): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/time-reports/${taskId}`, data);
+  }
+
+  getTimeReport(taskId): Observable<any> {
+    return this.http.get<any>(`${BASE_URL}/time-reports/${taskId}`);
+  }
+
+  deleteTimeReport(taskId): Observable<any> {
+    return this.http.delete<any>(`${BASE_URL}/time-reports/${taskId}`);
+  }
+
+  getErrorTypes(taskId): Observable<any> {
+    return this.http.get<any>(`${BASE_URL}/annotations/${taskId}`);
+  }
+
 }
