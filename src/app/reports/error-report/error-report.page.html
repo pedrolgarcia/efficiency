@@ -5,87 +5,96 @@
   <ion-card color="primary" margin-top>
     <ion-card-header class="page-title" padding text-center>Relatório de erro</ion-card-header>
 
-    <form no-padding padding-bottom padding-horizontal [formGroup]="errorReportForm">
+    <form no-padding padding-bottom padding-horizontal [formGroup]="form" *ngFor="let form of errorReportForm;">
 
 
       <ion-card-content class="project-card-content" padding margin-vertical>
+        <ion-input type="hidden" formControlName="id"></ion-input>
         <ion-row>
-          <ion-col size="6" align-self-center>
+          <ion-col size="5" align-self-center>
             <ion-label>Ocorrências: </ion-label>
           </ion-col>
-          <ion-col size="6" no-padding align-self-center>
-            <ion-item>
+          <ion-col size="7" no-padding align-self-center>
+            <app-input errorMessage="Preencha este campo com um número">
               <ion-input type="number" formControlName="ocorrencias" placeholder="Digite o número de ocorrências"></ion-input>
-            </ion-item>
+            </app-input>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col size="4" align-self-center>
+          <ion-col size="5" align-self-center>
             <ion-label>Tipo de erro: </ion-label>
           </ion-col>
-          <ion-col size="8" no-padding align-self-center>
-            <ion-select class="select" formControlName="tipo" cancelText="Cancelar" placeholder="Selecione o tipo">
-              <ion-select-option value="compilacao">Compilação</ion-select-option>
-              <ion-select-option value="sintaxe">Sintaxe</ion-select-option>
-              <ion-select-option value="semantica">Semântica</ion-select-option>
-              <ion-select-option value="logica">Lógica</ion-select-option>
-              <ion-select-option value="planejamento">Planejamento</ion-select-option>
+          <ion-col size="7" no-padding align-self-center>
+            <ion-select class="select" formControlName="tipo" cancelText="Cancelar" placeholder="Selecione o tipo" style="color: #98BDFF;">
+              <ion-select-option [value]="errorType?.id" *ngFor="let errorType of errorTypes">{{errorType?.error_type}}</ion-select-option>
             </ion-select>
           </ion-col>
         </ion-row>
 
         <ion-row>
-          <ion-col size="6" align-self-center>
+          <ion-col size="5" align-self-center>
             <ion-label>Tentativas de concerto: </ion-label>
           </ion-col>
-          <ion-col size="6" no-padding align-self-center>
-            <ion-item>
+          <ion-col size="7" no-padding align-self-center>
+            <app-input errorMessage="Preencha este campo com um número">
               <ion-input type="number" formControlName="tentativas" placeholder="Digite o número de tentativas"></ion-input>
-            </ion-item>
+            </app-input>
           </ion-col>
         </ion-row>
 
         <ion-row margin-top>
           <ion-col size="6">
             <ion-label no-margin>Descobrimento:</ion-label>
-            <ion-item style="border-bottom: 1px solid #3880ff;">
+            <ion-input errorMessage="Campo obrigatório" style="border-bottom: 1px solid #3880ff;">
               <ion-datetime displayFormat="DD/MM/YYYY" formControlName="descobrimento" placeholder="dd/mm/yyyy"
                 doneText="Feito" cancelText="Cancelar" style="color: #3880ff;" no-padding></ion-datetime>
-            </ion-item>
+            </ion-input>
           </ion-col>
           <ion-col size="6">
             <ion-label no-margin>Remoção:</ion-label>
-            <ion-item style="border-bottom: 1px solid #3880ff;">
-              <ion-datetime displayFormat="DD/MM/YYYY" formControlName="remocao" placeholder="dd/mm/yyyy" doneText="Feito"
-                cancelText="Cancelar" style="color: #3880ff;" no-padding></ion-datetime>
-            </ion-item>
+              <ion-input style="border-bottom: 1px solid #3880ff;">
+                <ion-datetime displayFormat="DD/MM/YYYY" formControlName="remocao" placeholder="dd/mm/yyyy" doneText="Feito"
+                  cancelText="Cancelar" style="color: #3880ff;" no-padding></ion-datetime>
+              </ion-input>
           </ion-col>
         </ion-row>
         <ion-row margin-top>
           <ion-textarea formControlName="descricao" rows="5" text-justify placeholder="Digite a descrição do erro" style="border: 1px solid #3880ff; border-radius: 10px;"></ion-textarea>
         </ion-row>
       </ion-card-content>
-
-      <ion-row>
-        <ion-col size="12" text-center>
-          <ion-button color="light" size="default" expand="block" [routerLink]="[ '/reports' ]"><span class="azul">Novo
-              erro</span></ion-button>
-        </ion-col>
-      </ion-row>
-      <ion-row>
+      <ion-row padding-horizontal *ngIf="!form.get('id').value">
         <ion-col size="6">
-          <ion-button color="success" size="default" expand="block">
+          <ion-button color="success" size="default" (click)="save()" [disabled]="form.invalid" expand="block">
             <ion-icon name="checkmark"></ion-icon><span>Salvar</span>
           </ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button color="danger" size="default" expand="block">
+          <ion-button type="reset" color="danger" size="default" expand="block">
             <ion-icon name="close"></ion-icon><span>Limpar</span>
           </ion-button>
         </ion-col>
       </ion-row>
+      <ion-row padding-horizontal *ngIf="form.get('id').value">
+        <ion-col size="6">
+          <ion-button color="warning" size="default" [disabled]="form.invalid" (click)="save()" expand="block">
+            <ion-icon name="create"></ion-icon><span>Editar</span>
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button color="danger" (click)="delete(form.get('id').value)" size="default" expand="block">
+            <ion-icon name="trash"></ion-icon><span>Excluir</span>
+          </ion-button>
+        </ion-col>
+      </ion-row>
     </form>
+      <ion-row padding-horizontal padding-bottom>
+        <ion-col size="12" text-center>
+          <ion-button color="light" size="default" expand="block" (click)="newError()"><span class="azul">Novo
+              erro</span></ion-button>
+        </ion-col>
+      </ion-row>
+      
   </ion-card>
 
 </ion-content>

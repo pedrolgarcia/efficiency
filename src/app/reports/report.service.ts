@@ -34,8 +34,19 @@ export class ReportService {
     return this.http.delete<any>(`${BASE_URL}/time-reports/${taskId}`);
   }
 
-  getErrorTypes(taskId): Observable<any> {
-    return this.http.get<any>(`${BASE_URL}/annotations/${taskId}`);
+  getErrorTypes(): Observable<any> {
+    return this.http.get<any>(`${BASE_URL}/error-types`);
   }
 
+  saveErrorReport(taskId, data): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/error-reports/${taskId}`, { data } );
+  }
+
+  getErrorReport(taskId): Observable<any> {
+    return this.http.get<any>(`${BASE_URL}/error-reports/${taskId}`);
+  }
+
+  deleteErrorReport(errorId): Observable<any> {
+    return this.http.delete<any>(`${BASE_URL}/error-reports/${errorId}`);
+  }
 }

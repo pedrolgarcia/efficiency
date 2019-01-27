@@ -42,5 +42,9 @@ export class TaskService {
   getCategories(): Observable<any> {
     return this.http.get<any>(`${BASE_URL}/categories`);
   }
+
+  setTime(id, data): Observable<any> {
+    return this.http.post<any>(`${BASE_URL}/tasks/${id}/timer`, data);
+  }
 }
 

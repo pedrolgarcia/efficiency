@@ -14,11 +14,11 @@
             </div>
             <div margin-bottom>
               <ion-title>Projetos cadastrados</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ createdProjectsTasks?.projects }}</ion-button>
             </div>
             <div>
               <ion-title>Tarefas cadastradas</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ createdProjectsTasks?.tasks }}</ion-button>
             </div>
           </div>
         </ion-slide>
@@ -29,11 +29,11 @@
             </div>
             <div margin-bottom>
               <ion-title>Projetos concluídos</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ completedProjectsTasks?.projects }}</ion-button>
             </div>
             <div>
               <ion-title>Tarefas concluídas</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ completedProjectsTasks?.tasks }}</ion-button>
             </div>
           </div>
         </ion-slide>
@@ -44,11 +44,11 @@
             </div>
             <div margin-bottom>
               <ion-title>Projetos atrasados</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ overdueProjectsTasks?.projects }}</ion-button>
             </div>
             <div>
               <ion-title>Tarefas atrasadas</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ overdueProjectsTasks?.tasks }}</ion-button>
             </div>
           </div>
         </ion-slide>
@@ -59,7 +59,7 @@
             </div>
             <div margin-bottom>
               <ion-title>Quantidade de erros gerados</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ errors?.errors }}</ion-button>
             </div>
             <!--<div margin-bottom>
               <ion-title>Erros por tipo</ion-title>
@@ -67,7 +67,7 @@
             </div>-->
             <div>
               <ion-title>Média de erros por tarefa</ion-title>
-              <ion-button color="light" fill="outline">4</ion-button>
+              <ion-button color="light" fill="outline">{{ errors?.average }}</ion-button>
             </div>
           </div>
         </ion-slide>
@@ -81,7 +81,7 @@
                 <ion-title>Erros de compilação</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ errors?.compilation }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -89,7 +89,7 @@
                 <ion-title>Erros de sintaxe</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ errors?.syntax }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -97,7 +97,7 @@
                 <ion-title>Erros de semântica</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ errors?.semantics }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -105,7 +105,7 @@
                 <ion-title>Erros de lógica</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ errors?.logic }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -113,7 +113,7 @@
                 <ion-title>Erros de planejamento</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ errors?.planning }}</ion-button>
               </ion-col>
             </ion-row>
           </div>
@@ -125,10 +125,18 @@
             </div>
             <ion-row>
               <ion-col size="9" align-self-center>
+                <ion-title>Tarefas de modelagem</ion-title>
+              </ion-col>
+              <ion-col size="3">
+                <ion-button color="light" fill="outline">{{ tasksByCategory?.modeling }}</ion-button>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col size="9" align-self-center>
                 <ion-title>Tarefas de documentação</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ tasksByCategory?.documentation }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -136,7 +144,7 @@
                 <ion-title>Tarefas de programação</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ tasksByCategory?.programming }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -144,7 +152,7 @@
                 <ion-title>Tarefas de design</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ tasksByCategory?.design }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -152,7 +160,7 @@
                 <ion-title>Tarefas de teste</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ tasksByCategory?.test }}</ion-button>
               </ion-col>
             </ion-row>
             <ion-row>
@@ -160,7 +168,7 @@
                 <ion-title>Outras tarefas</ion-title>
               </ion-col>
               <ion-col size="3">
-                <ion-button color="light" fill="outline">4</ion-button>
+                <ion-button color="light" fill="outline">{{ tasksByCategory?.other }}</ion-button>
               </ion-col>
             </ion-row>
           </div>
