@@ -14,8 +14,17 @@
         <ion-col size="12">
           <ion-card-subtitle> 
             <ion-badge *ngIf="project?.status.id === 1" color="success">{{ project?.status.status }}</ion-badge>
+            <span *ngIf="project?.status.id === 1 && project?.start" style="margin-bottom: 0;"> - Começou há {{ project?.start }}</span>
             <ion-badge *ngIf="project?.status.id === 2" color="danger">{{ project?.status.status }}</ion-badge>
+            <span *ngIf="project?.status.id === 2 && project?.end" style="margin-bottom: 0;"> - Terminou há {{ project?.end }}</span>
           </ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="project?.status.id === 1 && project?.late">
+        <ion-col size="12" text-center>
+          <ion-button color="danger" size="default" expand="block" style="text-transform: none; font-weight: bold;">
+            <ion-icon name="alert"></ion-icon><span> Atrasado há {{ project?.late }}</span>
+          </ion-button>
         </ion-col>
       </ion-row>
       <ion-row margin-top>
@@ -61,6 +70,7 @@
       <ion-row style="border-bottom: 1px solid #fff;"></ion-row>
       <ion-row margin-vertical>
         <ion-card-title>Tarefas relacionadas</ion-card-title>
+        <p>Tempo total demorado nas tarefas: {{ project?.time }}</p>
       </ion-row>
     </ion-card-header>
 

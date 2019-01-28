@@ -10,8 +10,17 @@
           <ion-card-title>{{ task?.name }}</ion-card-title>
           <ion-card-subtitle>
             <ion-badge *ngIf="task?.status.id === 1" color="success">{{ task?.status.status }}</ion-badge>
+            <span *ngIf="task?.status.id === 1 && task?.start" style="margin-bottom: 0;"> - Começou há {{ task?.start }}</span>
             <ion-badge *ngIf="task?.status.id === 2" color="danger">{{ task?.status.status }}</ion-badge>
+            <span *ngIf="task?.status.id === 2 && task?.end" style="margin-bottom: 0;"> - Terminou há {{ task?.end }}</span>
           </ion-card-subtitle>
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="task?.status.id === 1 && task?.late">
+        <ion-col size="12" text-center>
+          <ion-button color="danger" size="default" expand="block" style="text-transform: none; font-weight: bold;">
+            <ion-icon name="alert"></ion-icon><span> Atrasado há {{ task?.late }}</span>
+          </ion-button>
         </ion-col>
       </ion-row>
       <ion-row>

@@ -12,9 +12,8 @@
             <ion-label>Idioma: </ion-label>
           </ion-col>
           <ion-col size="8" no-padding align-self-center>
-            <ion-select class="select" formControlName="idioma" cancelText="Cancelar" placeholder="Selecione o idioma">
-              <ion-select-option value="p1">Português</ion-select-option>
-              <ion-select-option value="p2">Inglês</ion-select-option>
+            <ion-select class="select" formControlName="linguagem" cancelText="Cancelar" placeholder="Selecione o idioma">
+              <ion-select-option *ngFor="let language of languages" [value]="language?.id">{{ language?.language }}</ion-select-option>
             </ion-select>
           </ion-col>
         </ion-row>
@@ -24,7 +23,7 @@
             <ion-label>Dicas: </ion-label>
           </ion-col>
           <ion-col size="8" no-padding align-self-center>
-              <ion-checkbox checked="true" color="success"></ion-checkbox>
+              <ion-checkbox formControlName="dicas" checked="settings.tips === 1" color="success"></ion-checkbox>
           </ion-col>
         </ion-row>
 
@@ -46,16 +45,15 @@
           </ion-col>
           <ion-col size="8" no-padding align-self-center>
             <ion-select class="select" formControlName="tema" cancelText="Cancelar" placeholder="Selecione o tema">
-              <ion-select-option value="light">Light</ion-select-option>
-              <ion-select-option value="dark">Dark</ion-select-option>
+              <ion-select-option *ngFor="let theme of themes" [value]="theme?.id">{{ theme?.theme }}</ion-select-option>
             </ion-select>
           </ion-col>
         </ion-row>
 
         <div class="btn-group-form" padding>
-          <ion-button type="submit" size="default" expand="block" color="success" margin-bottom>Salvar</ion-button>
+          <ion-button (click)="save()" size="default" expand="block" color="success" margin-bottom>Salvar</ion-button>
           <ion-button type="reset" size="default" expand="block" color="danger" margin-bottom>Limpar</ion-button>
-          <ion-button type="button" size="default" expand="block" color="dark">Deletar dados antigos</ion-button>
+          <!--<ion-button type="button" size="default" expand="block" color="dark">Deletar dados antigos</ion-button>-->
         </div>
       </form>
     </ion-card-content>

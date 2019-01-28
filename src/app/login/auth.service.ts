@@ -5,13 +5,14 @@ import { BASE_URL } from '../app.api';
 import { Observable, of } from 'rxjs';
 import { Profile } from '../profile/profile.model';
 import { Router } from '@angular/router';
+import { SettingsService } from '../settings/settings.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private settingsService: SettingsService) { }
 
   isLogged(): boolean {
     return localStorage.getItem('user') ? true : false;
@@ -22,6 +23,7 @@ export class AuthService {
       .pipe(tap(data => {
         localStorage.setItem('token', data.access_token);
         localStorage.setItem('user', btoa(JSON.stringify(data.user)));
+        this.settingsService.getSettings().subscribe(response => localStorage.setItem('settings', JSON.stringify(response)));
       }));
   }
 
