@@ -1,0 +1,50 @@
+<!--<ion-row text-center>
+      <ion-col size="4">
+        <ion-button
+          color="primary"
+          mwlCalendarPreviousView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)">
+          Anterior
+        </ion-button>
+        <ion-button
+          color="secondary"
+          mwlCalendarToday
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)">
+          Hoje
+        </ion-button>
+        <ion-button
+          color="secondary"
+          mwlCalendarNextView
+          [view]="view"
+          [(viewDate)]="viewDate"
+          (viewDateChange)="viewDateChange.next(viewDate)">
+          Próximo
+        </ion-button>
+      </ion-col>
+      <ion-col size="4">
+        <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):locale }}</h3>
+      </ion-col>
+      <ion-col size="4">
+        <ion-button
+          color="primary"
+          (click)="viewChange.emit('month')"
+          [class.active]="view === 'month'">
+          Mês
+        </ion-button>
+        <ion-button
+          color="primary"
+          (click)="viewChange.emit('week')"
+          [class.active]="view === 'week'">
+          Semana
+        </ion-button>
+        <ion-button
+          color="primary"
+          (click)="viewChange.emit('day')"
+          [class.active]="view === 'day'">
+          Dia
+        </ion-button>
+      </ion-col>
+    </ion-row>-->

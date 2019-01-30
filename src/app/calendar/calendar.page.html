@@ -1,0 +1,40 @@
+<app-header></app-header>
+
+<ion-content padding-bottom padding-horizontal>
+
+  <ion-card color="primary" margin-top>
+    <ion-card-header class="page-title" padding text-center>Calendário</ion-card-header>
+
+    <ion-card-content>
+      <mwl-demo-utils-calendar-header
+        [(view)]="view"
+        [(viewDate)]="viewDate">
+      </mwl-demo-utils-calendar-header>
+
+      <div [ngSwitch]="view" style="background: #fafafa; color: #959799; border-radius: 10px;">
+        <mwl-calendar-month-view
+          *ngSwitchCase="'month'"
+          [viewDate]="viewDate"
+          [events]="events"
+          [activeDayIsOpen]="true"
+          [refresh]="refresh"
+          (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-month-view>
+        <mwl-calendar-week-view
+          *ngSwitchCase="'week'"
+          [viewDate]="viewDate"
+          [events]="events"
+          [refresh]="refresh"
+          (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-week-view>
+        <mwl-calendar-day-view
+          *ngSwitchCase="'day'"
+          [viewDate]="viewDate"
+          [events]="events"
+          [refresh]="refresh"
+          (eventTimesChanged)="eventTimesChanged($event)">
+        </mwl-calendar-day-view>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

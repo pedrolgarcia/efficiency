@@ -14,7 +14,7 @@ export class AppComponent {
     { title: 'Meu feed', url: '/', icon: 'home' },
     { title: 'Cadastrar Projeto', url: '/project-create', icon: 'clipboard' },
     { title: 'Cadastrar Tarefa', url: '/task-create', icon: 'filing' },
-    { title: 'Calendário', url: '/login', icon: 'calendar' },
+    { title: 'Calendário', url: '/calendar', icon: 'calendar' },
     { title: 'Desempenho', url: '/performance', icon: 'stats' },
     { title: 'Cronômetro', url: '/timer', icon: 'time' },
     { title: 'Anotações', url: '/annotations', icon: 'bookmarks' },

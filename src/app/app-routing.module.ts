@@ -17,6 +17,7 @@ const routes: Routes = [
       { path: 'task/:id', loadChildren: './task/task.module#TaskPageModule' },
       { path: 'task-create', loadChildren: './task/task-create/task-create.module#TaskCreatePageModule' },
       { path: 'task-edit/:id', loadChildren: './task/task-edit/task-edit.module#TaskEditPageModule' },
+      { path: 'calendar', loadChildren: './calendar/calendar.module#CalendarPageModule' },
       { path: 'reports/:id', loadChildren: './reports/reports.module#ReportsPageModule' },
       { path: 'annotations', loadChildren: './reports/annotations/annotations.module#AnnotationsPageModule' },
       { path: 'annotations/:id', loadChildren: './reports/annotations/annotations.module#AnnotationsPageModule' },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'performance', loadChildren: './performance/performance.module#PerformancePageModule' },
       { path: 'settings', loadChildren: './settings/settings.module#SettingsPageModule' },
     ] },
+
 
 
 ];
