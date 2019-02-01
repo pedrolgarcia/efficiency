@@ -10,7 +10,23 @@
         [(view)]="view"
         [(viewDate)]="viewDate">
       </mwl-demo-utils-calendar-header>
-
+      <ion-row>
+        <ion-col size="12" text-center>
+          <ion-label style="margin: 0;">Mostrar por:</ion-label>
+        </ion-col>
+        <ion-col size="6" text-right>
+          <ion-button size="default" expand="fill" color="light" [class.active]="!projects && tasks" (click)="filterByProject()"><span class="azul">Projetos</span></ion-button>
+        </ion-col>
+        <ion-col size="6" text-left>
+          <ion-button size="default" expand="fill" color="light" [class.active]="projects && !tasks" (click)="filterByTask()"><span class="azul">Tarefas</span></ion-button>
+        </ion-col>
+        <!--<ion-col size="12" text-center>
+          <ion-select value="2" (ionChange)="onFilter($event)" okText="OK" cancelText="Fechar">
+            <ion-select-option value="1">Data de início</ion-select-option>
+            <ion-select-option value="2">Data de entrega</ion-select-option>
+          </ion-select>
+        </ion-col>-->
+      </ion-row>
       <div [ngSwitch]="view" style="background: #fafafa; color: #959799; border-radius: 10px;">
         <mwl-calendar-month-view
           *ngSwitchCase="'month'"
@@ -18,7 +34,8 @@
           [events]="events"
           [activeDayIsOpen]="true"
           [refresh]="refresh"
-          (eventTimesChanged)="eventTimesChanged($event)">
+          (eventTimesChanged)="eventTimesChanged($event)"
+          (dayClicked)="dayClicked($event)">
         </mwl-calendar-month-view>
         <mwl-calendar-week-view
           *ngSwitchCase="'week'"
@@ -35,6 +52,80 @@
           (eventTimesChanged)="eventTimesChanged($event)">
         </mwl-calendar-day-view>
       </div>
+    </ion-card-content>
+    <ng-template [ngIf]="eventsDay.length !== 0 && !tasks && projects">
+    <ion-card-content class="project-card-content" *ngFor="let p of projectView"  padding margin>
+        <ion-row >
+          <ion-col size="6" no-padding>
+            <ion-label class="disabled-label" text-left><span color="primary" style="font-weight: bold;">{{ p[0].name }}</span></ion-label>
+          </ion-col>
+          <ion-col size="6" no-padding text-right>
+            <ion-button color="primary" size="small" [routerLink]="['/project', p[0].id]" style="text-transform: none; margin-top: 5px;"><strong>Ver projeto</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col size="12" no-padding>
+            <ion-badge *ngIf="p[0].status.id === 1 && !p[0].late" color="success">{{ p[0].status.status }}</ion-badge>
+            <span *ngIf="p[0].status.id === 1 && p[0].start && !p[0].late" style="margin-bottom: 0; color: #959799; font-size: 14px;"> - Começou há {{ p[0].start }}</span>
+            
+            <ion-badge *ngIf="p[0].status.id === 2" color="warning">{{ p[0].status.status }}</ion-badge>
+            <span *ngIf="p[0].status.id === 2 && p[0].end" style="margin-bottom: 0; color: #959799; font-size: 14px;"> - Terminou há {{ p[0].end }}</span>
+            
+            <ion-badge *ngIf="p[0].status.id === 1 && p[0].late" color="danger">Atrasado</ion-badge>
+            <span *ngIf="p[0].status.id === 1 && p[0].late" style="margin-bottom: 0; color: #959799; font-size: 14px;"> - Atrasado há {{ p[0].late }}</span>
+
+            <ion-label class="disabled-label" text-left>Data de início: {{ p[0].started_at }}</ion-label>
+            <ion-label class="disabled-label" text-left>Data de entrega: {{ p[0].ended_at }}</ion-label>
+            <ion-label class="disabled-label" *ngIf="p[0].completed_at" text-left>Finalizou em: {{ p[0]?.completed_at }}</ion-label>
+            <ion-label class="disabled-label" text-left>Tarefas: {{ p[0].tasks_qtd }}</ion-label>
+          </ion-col>
+        </ion-row>
+    </ion-card-content>
+    </ng-template>
+    <ion-card-content class="project-card-content" *ngIf="eventsDay.length === 0 && projects && !tasks" padding margin>
+        <ion-row>
+          <ion-col size="12" text-center no-padding>
+            <ion-label class="disabled-label">Nenhum projeto no dia selecionado</ion-label>
+          </ion-col>
+        </ion-row>
+    </ion-card-content>
+    <ng-template [ngIf]="eventsDay.length !== 0 && !projects && tasks">
+    <ion-card-content class="project-card-content" *ngFor="let p of taskView"  padding margin>
+        <ion-row >
+          <ion-col size="6" no-padding>
+            <ion-label class="disabled-label" text-left><span color="primary" style="font-weight: bold;">{{ p[0].name }}</span></ion-label>
+          </ion-col>
+          <ion-col size="6" no-padding text-right>
+            <ion-button color="primary" size="small" [routerLink]="['/task', p[0].id]" style="text-transform: none; margin-top: 5px;"><strong>Ver tarefa</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row >
+          <ion-col size="12" no-padding>
+            <ion-badge *ngIf="p[0].status.id === 1 && !p[0].late" color="success">{{ p[0].status.status }}</ion-badge>
+            <span *ngIf="p[0].status.id === 1 && p[0].start && !p[0].late" style="margin-bottom: 0; color: #959799; font-size: 14px;"> - Começou há {{ p[0].start }}</span>
+            
+            <ion-badge *ngIf="p[0].status.id === 2" color="warning">{{ p[0].status.status }}</ion-badge>
+            <span *ngIf="p[0].status.id === 2 && p[0].end" style="margin-bottom: 0; color: #959799; font-size: 14px;"> - Terminou há {{ p[0].end }}</span>
+            
+            <ion-badge *ngIf="p[0].status.id === 1 && p[0].late" color="danger">Atrasado</ion-badge>
+            <span *ngIf="p[0].status.id === 1 && p[0].late" style="margin-bottom: 0; color: #959799; font-size: 14px;"> - Atrasado há {{ p[0].late }}</span>
+
+            <ion-label class="disabled-label" text-left>Projeto: {{ p[0].project }}</ion-label>
+            <ion-label class="disabled-label" text-left>Categoria: {{ p[0].category.category }}</ion-label>
+            <ion-label class="disabled-label" text-left>Tempo cronometrado: {{ p[0].time ? p[0].time : '-' }}</ion-label>
+            <ion-label class="disabled-label" text-left>Data de início: {{ p[0].started_at }}</ion-label>
+            <ion-label class="disabled-label" text-left>Data de entrega: {{ p[0].ended_at }}</ion-label>
+            <ion-label class="disabled-label" *ngIf="p[0].completed_at" text-left>Finalizou em: {{ p[0]?.completed_at }}</ion-label>
+          </ion-col>
+        </ion-row>
+    </ion-card-content>
+    </ng-template>
+    <ion-card-content class="project-card-content" *ngIf="eventsDay.length === 0 && !projects && tasks" padding margin>
+        <ion-row>
+          <ion-col size="12" text-center no-padding>
+            <ion-label class="disabled-label">Nenhuma tarefa no dia selecionado</ion-label>
+          </ion-col>
+        </ion-row>
     </ion-card-content>
   </ion-card>
 </ion-content>

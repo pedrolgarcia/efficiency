@@ -4,10 +4,15 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './login/auth.service';
+import { SettingsService } from './settings/settings.service';
+import { Settings } from './settings/settings.model';
 
 @Component({
   selector: 'app-root',
-  templateUrl: 'app.component.html'
+  templateUrl: 'app.component.html',
+  styles: [
+    `ion-content { --ion-background-color: #111D12 !important; }`
+  ]
 })
 export class AppComponent {
   public appPages = [
@@ -23,11 +28,14 @@ export class AppComponent {
     { title: 'Sair', url: '/login', icon: 'log-out' },
   ];
 
+  settings: Settings;
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private authService: AuthService
+    private authService: AuthService,
+    private settingsService: SettingsService
   ) {
     this.initializeApp();
   }
@@ -37,6 +45,8 @@ export class AppComponent {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
+
+    this.settings = this.settingsService.getSettingsFromStorage();
   }
 
   logout() {

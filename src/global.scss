@@ -12,6 +12,17 @@
 /* angular-cli file: src/styles.css */
 @import "../node_modules/angular-calendar/css/angular-calendar.css";
 
+/* tema light */
+.light {
+    background-color: #fff;
+}
+
+/* tema dark */
+// .dark, 
+// .scroll-y {
+//     --ion-background-color:#111D12;
+// }
+
 .menu-title {
     color: #fff;
     letter-spacing: 20px;
