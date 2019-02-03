@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { SettingsService } from '../../settings/settings.service';
 
 @Component({
   selector: 'mwl-demo-utils-calendar-header',
@@ -35,7 +36,7 @@ export class CalendarHeaderComponent implements OnInit {
   viewDate: Date;
 
   @Input()
-  locale: string = 'pt-BR';
+  locale: string = this.settingsService.getSettingsFromStorage().language_id === 1 ? 'pt-BR' : 'en-US';
 
   @Output()
   viewChange: EventEmitter<string> = new EventEmitter();
@@ -43,7 +44,7 @@ export class CalendarHeaderComponent implements OnInit {
   @Output()
   viewDateChange: EventEmitter<Date> = new EventEmitter();
 
-  constructor () { }
+  constructor (private settingsService: SettingsService) { }
 
   ngOnInit() { }
 }

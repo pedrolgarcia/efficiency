@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
@@ -6,15 +6,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './login/auth.service';
 import { SettingsService } from './settings/settings.service';
 import { Settings } from './settings/settings.model';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  styles: [
-    `ion-content { --ion-background-color: #111D12 !important; }`
-  ]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   public appPages = [
     { title: 'Meu feed', url: '/', icon: 'home' },
     { title: 'Cadastrar Projeto', url: '/project-create', icon: 'clipboard' },
@@ -35,10 +33,12 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private authService: AuthService,
-    private settingsService: SettingsService
+    private settingsService: SettingsService,
+    private router: Router
   ) {
     this.initializeApp();
   }
+
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -46,8 +46,17 @@ export class AppComponent {
       this.splashScreen.hide();
     });
 
-    this.settings = this.settingsService.getSettingsFromStorage();
   }
+
+  ngOnInit() {
+    this.router.events.subscribe(
+      (event) => {
+             if (event instanceof NavigationEnd) {
+              this.settings = this.settingsService.getSettingsFromStorage();
+             }
+      });
+  }
+
 
   logout() {
     this.authService.logout();

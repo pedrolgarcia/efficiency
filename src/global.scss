@@ -14,14 +14,20 @@
 
 /* tema light */
 .light {
-    background-color: #fff;
+    background: #fff !important;
+    --ion-background-color: #fff !important;
 }
 
 /* tema dark */
-// .dark, 
-// .scroll-y {
-//     --ion-background-color:#111D12;
-// }
+.dark {
+    background: #353232 !important;
+    --ion-background-color: #353232 !important;
+}
+
+
+ion-header[_ngcontent-c1] {
+    border-bottom: 0 !important;
+}
 
 .menu-title {
     color: #fff;

@@ -1,7 +1,7 @@
 <ion-app>
   <ion-split-pane>
     <ion-menu side="end" color="primary">
-      <ion-header>
+      <ion-header style="border-bottom: 0;">
         <ion-toolbar>
           <ion-title class="menu-title" text-center>Menu</ion-title>
         </ion-toolbar>
@@ -25,6 +25,7 @@
         </ion-list>
       </ion-content>
     </ion-menu>
-    <ion-router-outlet main></ion-router-outlet>
+    <ion-router-outlet main [class.light]="settings?.theme_id === 1"
+                            [class.dark]="settings?.theme_id === 2"></ion-router-outlet>
   </ion-split-pane>
 </ion-app>

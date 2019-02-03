@@ -34,6 +34,7 @@
     "cordova-sqlite-storage": "2.5.2",
     "core-js": "^2.5.3",
     "date-fns": "^1.30.1",
+    "onesignal-cordova-plugin": "2.4.6",
     "rxjs": "6.2.2",
     "zone.js": "^0.8.26"
   },
@@ -67,7 +68,8 @@
   "cordova": {
     "plugins": {
       "cordova-sqlite-storage": {},
-      "cordova-plugin-advanced-http": {}
+      "cordova-plugin-advanced-http": {},
+      "onesignal-cordova-plugin": {}
     }
   }
 }

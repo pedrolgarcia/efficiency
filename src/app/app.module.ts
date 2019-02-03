@@ -21,8 +21,10 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { Regex } from './regex';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import localeEn from '@angular/common/locales/en';
 
-registerLocaleData(localePt, 'pt-BR');
+JSON.parse(localStorage.getItem('settings')).language_id === 1 ?
+  registerLocaleData(localePt, 'pt-BR') : registerLocaleData(localeEn, 'en');
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -42,7 +44,9 @@ registerLocaleData(localePt, 'pt-BR');
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    JSON.parse(localStorage.getItem('settings')).language_id === 1 ?
+      { provide: LOCALE_ID, useValue: 'pt-BR' } :
+      { provide: LOCALE_ID, useValue: 'en_us' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
