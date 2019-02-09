@@ -7,6 +7,7 @@ import { AuthService } from './login/auth.service';
 import { SettingsService } from './settings/settings.service';
 import { Settings } from './settings/settings.model';
 import { Router, NavigationEnd } from '@angular/router';
+import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 
 @Component({
   selector: 'app-root',
@@ -34,9 +35,24 @@ export class AppComponent implements OnInit {
     private statusBar: StatusBar,
     private authService: AuthService,
     private settingsService: SettingsService,
-    private router: Router
+    private router: Router,
+    private localNotifications: LocalNotifications
   ) {
     this.initializeApp();
+
+    if (this.platform.is('android')) {
+      this.statusBar.backgroundColorByHexString('#3880ff');
+    }
+
+    // // Schedule delayed notification
+    // this.localNotifications.schedule({
+    //   id: 1,
+    //   text: 'Dicas',
+    //   trigger: {at: new Date(new Date().getTime() + 1)},
+    //   led: 'FF0000',
+    //   sound: null,
+    //   data: { secret: 'Local Notification' }
+    // });
   }
 
 

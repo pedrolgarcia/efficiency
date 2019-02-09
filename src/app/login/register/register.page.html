@@ -1,11 +1,36 @@
 <ion-grid>
   <ion-row padding justify-content-center>
     <ion-col align-self-center>
-      <h1 class="page-title" text-center padding-bottom>Cadastrar usuário</h1>
+      <h1 class="page-title" text-center>Cadastrar usuário</h1>
    
   
         <form padding [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <ion-row>
+        <ion-row align-items-center>
+          <ion-col size="3">
+            
+          </ion-col>
+          <ion-col size="6" text-center>
+            <ion-avatar class="profile-avatar">
+              <img *ngIf="!myphoto" src="../../../assets/users/profile.png" alt="Usuário">
+              <img *ngIf="myphoto" [src]="myphoto" alt="Usuário">
+            </ion-avatar>
+          </ion-col>
+          <ion-col size="3">
+          </ion-col>
+        </ion-row>
+        <ion-row justify-content-center>
+        <ion-buttons>
+          <ion-button (click)="takePhoto()" style="background-color: #B4DEFC; margin: 5px;">
+            <ion-icon name="camera" color="primary" class="camera-icon"></ion-icon><span class="azul"> Câmera</span>
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons>
+          <ion-button (click)="getImage()" style="background-color: #B4DEFC; margin: 5px;">
+            <ion-icon name="add" color="primary" class="camera-icon"></ion-icon><span class="azul"> Escolher</span>
+          </ion-button>
+        </ion-buttons>
+        </ion-row>
+        <ion-row>
           <ion-col size="3" align-self-center>
             <ion-label>Nome: </ion-label>
           </ion-col>
