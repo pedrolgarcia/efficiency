@@ -71,8 +71,9 @@ export class AppComponent implements OnInit {
               this.settings = this.settingsService.getSettingsFromStorage();
              }
       });
-  }
 
+    this.settings = this.settingsService.getSettingsFromStorage();
+  }
 
   logout() {
     this.authService.logout();

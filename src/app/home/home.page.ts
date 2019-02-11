@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../project/project.service';
 import { Project } from '../project/project.model';
 import { FormGroup, FormBuilder } from '@angular/forms';
+import { SettingsService } from '../settings/settings.service';
+import { Settings } from '../settings/settings.model';
 
 @Component({
   selector: 'app-home',
@@ -10,13 +12,19 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class HomePage implements OnInit {
 
+  settings: Settings;
+
   projects: Project;
   noProject = null;
   searchForm: FormGroup;
   filter: string;
   searchText: string;
 
-  constructor(private projectService: ProjectService, private formBuilder: FormBuilder) { }
+  constructor(
+    private projectService: ProjectService,
+    private formBuilder: FormBuilder,
+    private settingsService: SettingsService
+  ) { }
 
   ngOnInit() {
     this.searchForm = this.formBuilder.group({
@@ -44,6 +52,8 @@ export class HomePage implements OnInit {
     this.projectService.getProjects().subscribe(response => {
         this.projects = response;
       });
+
+      this.settings = this.settingsService.getSettingsFromStorage();
   }
 
   onFilter(e) {

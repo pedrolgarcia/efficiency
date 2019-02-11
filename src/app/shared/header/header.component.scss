@@ -6,5 +6,15 @@
 
 ion-header {
     position: static;
-    border-bottom: 1px solid #F4F5F8;
+    //border-bottom: 1px solid #F4F5F8;
+}
+
+ion-avatar {
+    margin: 0 auto;
+}
+
+ion-avatar img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
 }

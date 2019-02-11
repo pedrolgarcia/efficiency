@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { BASE_URL } from '../app.api';
+import { BASE_URL, BASE_BACKEND } from '../app.api';
 import { Observable, of } from 'rxjs';
 import { Profile } from '../profile/profile.model';
 import { Router } from '@angular/router';
@@ -21,9 +21,12 @@ export class AuthService {
   login(credentials: { email: string, password: string }): Observable<boolean> {
     return this.http.post<any>(`${BASE_URL}/login`, credentials)
       .pipe(tap(data => {
-        localStorage.setItem('token', data.access_token);
+        if (data.user.avatar !== '/src/assets/users/profile.png') {
+          data.user.avatar = `${BASE_BACKEND}${data.user.avatar}`;
+        }
         localStorage.setItem('user', btoa(JSON.stringify(data.user)));
-        this.settingsService.getSettings().subscribe(response => localStorage.setItem('settings', JSON.stringify(response)));
+        localStorage.setItem('token', data.access_token);
+        localStorage.setItem('settings', JSON.stringify(data.settings));
       }));
   }
 
@@ -53,6 +56,7 @@ export class AuthService {
     this.http.get<any>(`${BASE_URL}/user`).toPromise()
       .then(data => {
         if (data) {
+          data.user.avatar = `${BASE_BACKEND}${data.user.avatar}`;
           localStorage.setItem('user', btoa(JSON.stringify(data)));
           return true;
         }

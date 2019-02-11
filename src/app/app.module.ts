@@ -29,8 +29,9 @@ import { File } from '@ionic-native/file/ngx';
 import { FileTransfer } from '@ionic-native/file-transfer/ngx';
 
 
-JSON.parse(localStorage.getItem('settings')) && JSON.parse(localStorage.getItem('settings')).language_id === 1 ?
-  registerLocaleData(localePt, 'pt-BR') : registerLocaleData(localeEn, 'en');
+// JSON.parse(localStorage.getItem('settings')) && JSON.parse(localStorage.getItem('settings')).language_id === 1 ?
+   registerLocaleData(localePt, 'pt-BR') 
+   //: registerLocaleData(localeEn, 'en');
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -52,9 +53,9 @@ JSON.parse(localStorage.getItem('settings')) && JSON.parse(localStorage.getItem(
     StatusBar,
     SplashScreen,
     LocalNotifications,
-    JSON.parse(localStorage.getItem('settings')) && JSON.parse(localStorage.getItem('settings')).language_id === 1 ?
-      { provide: LOCALE_ID, useValue: 'pt-BR' } :
-      { provide: LOCALE_ID, useValue: 'en_us' },
+    // JSON.parse(localStorage.getItem('settings')) && JSON.parse(localStorage.getItem('settings')).language_id === 1 ?
+       { provide: LOCALE_ID, useValue: 'pt-BR' },
+    //   { provide: LOCALE_ID, useValue: 'en_us' },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },

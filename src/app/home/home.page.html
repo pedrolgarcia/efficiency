@@ -1,6 +1,7 @@
 <app-header></app-header>
 
-<ion-content padding-bottom padding-horizontal>
+<ion-content padding-bottom padding-horizontal [class.light]="settings?.theme_id === 1"
+                                                [class.dark]="settings?.theme_id === 2">
   <ion-title class="page-title-separated" padding text-center>Meu Feed</ion-title>
 
   <!--<form padding [formGroup]="searchForm">

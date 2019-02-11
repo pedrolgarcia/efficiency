@@ -62,7 +62,7 @@ export class RegisterPage implements OnInit {
 
   takePhoto() {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 70,
       destinationType: this.camera.DestinationType.DATA_URL,
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
@@ -79,7 +79,7 @@ export class RegisterPage implements OnInit {
 
   getImage() {
     const options: CameraOptions = {
-      quality: 100,
+      quality: 70,
       destinationType: this.camera.DestinationType.DATA_URL,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
       saveToPhotoAlbum: false
@@ -101,7 +101,7 @@ export class RegisterPage implements OnInit {
 
     let options: FileUploadOptions = {
       fileKey: 'photo',
-      fileName: this.registerForm.get('name') + '_' + random + '.jpg',
+      fileName: this.registerForm.get('name').value + '.jpg',
       chunkedMode: false,
       httpMethod: 'post',
       mimeType: 'image/jpeg',

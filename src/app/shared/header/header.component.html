@@ -2,13 +2,13 @@
   <ion-row align-items-center padding [class.light]="settings?.theme_id === 1" [class.dark]="settings?.theme_id === 2">
     <ion-col size="3" text-center>
       <ion-avatar>
-        <a href="/profile"><img [src]="profile.avatar" alt="Usuário"></a>
+        <a href="/profile"><img [src]="profile?.avatar" alt="Usuário"></a>
       </ion-avatar>
     </ion-col>
     <ion-col size="7" text-center>
       <a href="/profile" style="color: #000;">
         <ion-title class="username-header" style="border-radius: 10px;">
-          {{ profile.name }}
+          {{ profile?.name }}
         </ion-title>
       </a>
     </ion-col>
