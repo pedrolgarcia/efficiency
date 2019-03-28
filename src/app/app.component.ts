@@ -44,15 +44,15 @@ export class AppComponent implements OnInit {
       this.statusBar.backgroundColorByHexString('#3880ff');
     }
 
-    // // Schedule delayed notification
-    // this.localNotifications.schedule({
-    //   id: 1,
-    //   text: 'Dicas',
-    //   trigger: {at: new Date(new Date().getTime() + 1)},
-    //   led: 'FF0000',
-    //   sound: null,
-    //   data: { secret: 'Local Notification' }
-    // });
+    // Schedule delayed notification
+    this.localNotifications.schedule({
+      id: 1,
+      text: 'Dicas',
+      trigger: {at: new Date(new Date().getTime() + 1)},
+      led: 'FF0000',
+      sound: null,
+      data: { secret: 'Local Notification' }
+    });
   }
 
 
