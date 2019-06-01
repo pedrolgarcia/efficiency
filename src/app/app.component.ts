@@ -47,10 +47,10 @@ export class AppComponent implements OnInit {
     // Schedule delayed notification
     this.localNotifications.schedule({
       id: 1,
+      title: 'Dicas',
       text: 'Dicas',
       trigger: {at: new Date(new Date().getTime() + 1)},
-      led: 'FF0000',
-      sound: null,
+      icon: 'http://example.com/icon.png',
       data: { secret: 'Local Notification' }
     });
   }

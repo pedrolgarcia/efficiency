@@ -21,7 +21,7 @@ export class AuthService {
   login(credentials: { email: string, password: string }): Observable<boolean> {
     return this.http.post<any>(`${BASE_URL}/login`, credentials)
       .pipe(tap(data => {
-        if (data.user.avatar !== '/src/assets/users/profile.png') {
+        if (data.user.avatar !== '/assets/users/profile.png') {
           data.user.avatar = `${BASE_BACKEND}${data.user.avatar}`;
         }
         localStorage.setItem('user', btoa(JSON.stringify(data.user)));

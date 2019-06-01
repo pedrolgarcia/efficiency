@@ -25,7 +25,7 @@ export class ProfilePage implements OnInit {
 
   ionViewWillEnter() {
     this.profileService.getUser().subscribe(response => {
-      if (response.avatar !== '/src/assets/users/profile.png') {
+      if (response.avatar !== '/assets/users/profile.png') {
         response.avatar = `${BASE_BACKEND}${response.avatar}`;
       }
       this.profile = response;
