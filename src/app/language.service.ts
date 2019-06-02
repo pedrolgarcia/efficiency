@@ -16,6 +16,9 @@ export class LanguageService {
 
       this.translate.use(lang);
       this.selected = lang;
+    } else {
+      this.translate.use('pt');
+      this.selected = 'pt';
     }
   }
 }

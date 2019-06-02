@@ -50,7 +50,7 @@ export class RegisterPage implements OnInit {
       .subscribe(
         response => {
           if (this.myphoto) {
-            this.uploadImage();
+            this.uploadImage(response[0].id);
           }
           this.alert.header = response.success;
           this.alert.message = response.message;
@@ -94,7 +94,7 @@ export class RegisterPage implements OnInit {
     });
   }
 
-  uploadImage() {
+  uploadImage(id) {
     const fileTransfer: FileTransferObject = this.transfer.create();
 
     var random = Math.floor(Math.random() * 100);
@@ -108,7 +108,7 @@ export class RegisterPage implements OnInit {
       headers: {}
     };
 
-    fileTransfer.upload(this.myphoto, `${BASE_URL}/photoUpload`, options)
+    fileTransfer.upload(this.myphoto, `${BASE_URL}/photoUpload/${id}`, options)
       .then((data) => {
         console.log(data);
       }, (err) => {

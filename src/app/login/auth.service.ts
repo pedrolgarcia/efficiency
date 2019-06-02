@@ -57,6 +57,7 @@ export class AuthService {
       .then(data => {
         if (data) {
           data.user.avatar = `${BASE_BACKEND}${data.user.avatar}`;
+          console.log(data)
           localStorage.setItem('user', btoa(JSON.stringify(data)));
           return true;
         }
