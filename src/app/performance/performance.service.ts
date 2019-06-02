@@ -11,7 +11,7 @@ export class PerformanceService {
   constructor(private http: HttpClient) { }
 
   getProjectsTasks(status = null): Observable<any> {
-    return this.http.get<any>(`${BASE_URL}/performance/projects-tasks/${status ? status : ''}`);
+    return this.http.get<any>(`${BASE_URL}/performance/projects-tasks${status ? '/' + status : ''}`);
   }
 
   getErrors(): Observable<any> {

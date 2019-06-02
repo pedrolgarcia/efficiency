@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProjectCreatePage } from './project-create.page';
 import { SharedModule } from '../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: ProjectCreatePage }
@@ -19,7 +20,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   declarations: [ProjectCreatePage]
 })

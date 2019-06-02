@@ -3,31 +3,31 @@
 <ion-content padding-bottom padding-horizontal>
 
   <ion-card color="primary" margin-top>
-    <ion-card-header class="page-title" padding text-center>Cadastrar Projeto</ion-card-header>
+    <ion-card-header class="page-title" padding text-center>{{ "create_project.title" | translate }}</ion-card-header>
 
     <form no-padding padding-bottom padding-horizontal [formGroup]="createProjectForm" (ngSubmit)="onSubmit()">
       <ion-row>
         <ion-col size="4" align-self-center>
-          <ion-label>Nome: </ion-label>
+          <ion-label>{{ "create_project.name" | translate }}: </ion-label>
         </ion-col>
         <ion-col size="8" no-padding>
           <app-input errorMessage="O nome é obrigatório e deve conter apenas letras">
-            <ion-input type="text" formControlName="nome" placeholder="Digite o nome"></ion-input>
+            <ion-input type="text" formControlName="nome" [placeholder]="'create_project.name_placeholder' | translate"></ion-input>
           </app-input>
         </ion-col>
       </ion-row>
       
       <ion-row margin-top>
         <ion-col size="6">
-          <ion-label no-margin>Data de Início:</ion-label>
+          <ion-label no-margin>{{ "create_project.start_date" | translate }}:</ion-label>
           <app-input errorMessage="Data inicial é obrigatória" style="border-bottom: 1px solid #fff;">
-            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="inicio" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="inicio" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="'buttons.btn_cancel' | translate" style="color: #fff;" no-padding></ion-datetime>
           </app-input>
         </ion-col>
         <ion-col size="6">
-          <ion-label no-margin>Data de Entrega:</ion-label>
+          <ion-label no-margin>{{ "create_project.end_date" | translate }}:</ion-label>
           <app-input errorMessage="Data de entrega é obrigatória" style="border-bottom: 1px solid #fff;">
-            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="entrega" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
+            <ion-datetime displayFormat="DD/MM/YYYY" formControlName="entrega" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="'buttons.btn_cancel' | translate" style="color: #fff;" no-padding></ion-datetime>
           </app-input>
         </ion-col>
       </ion-row>
@@ -35,19 +35,19 @@
       <ion-card-content class="project-card-content" padding margin-top>
         <ion-row>
           <app-input errorMessage="Descrição é obrigatória">
-            <ion-textarea name="descricao" formControlName="descricao" rows="7" text-justify placeholder="Digite a descrição do projeto"></ion-textarea>
+            <ion-textarea name="descricao" formControlName="descricao" rows="7" text-justify [placeholder]="'create_project.description' | translate"></ion-textarea>
           </app-input>
         </ion-row>
       </ion-card-content>
       <ion-row padding-top>
           <ion-col size="6">
             <ion-button type="submit" [disabled]="createProjectForm.invalid" color="success" size="default" expand="block">
-              <ion-icon name="checkmark"></ion-icon><span>Cadastrar</span>
+              <ion-icon name="checkmark"></ion-icon><span>{{ "buttons.btn_create" | translate }}</span>
             </ion-button>
           </ion-col>
           <ion-col size="6">
             <ion-button type="reset" color="danger" size="default" expand="block">
-              <ion-icon name="close"></ion-icon><span>Limpar</span>
+              <ion-icon name="close"></ion-icon><span>{{ "buttons.btn_clear" | translate }}</span>
             </ion-button>
           </ion-col>
         </ion-row>

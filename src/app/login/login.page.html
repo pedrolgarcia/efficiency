@@ -10,7 +10,7 @@
 					<ion-input type="email" formControlName="email" placeholder="E-mail"></ion-input>
 				</app-input>
 				<app-input errorMessage="A senha deve conter pelo menos 6 caracteres" icon="lock">
-					<ion-input type="password" formControlName="password" placeholder="Senha"></ion-input>
+					<ion-input type="password" formControlName="password" [placeholder]="'login.password' | translate"></ion-input>
 				</app-input>
 
 				<div padding>
@@ -20,8 +20,8 @@
 				</div>
 			</form>
 			<div class="register" text-center>
-				<ion-button size="default" color="light" [routerLink]="['/forgot']"><span class="azul">Esqueci a senha</span></ion-button>
-				<ion-button size="default" color="light" [routerLink]="['/register']"><span class="azul">Criar conta</span></ion-button>
+				<ion-button size="default" color="light" [routerLink]="['/forgot']"><span class="azul">{{ "login.forgot" | translate }}</span></ion-button>
+				<ion-button size="default" color="light" [routerLink]="['/register']"><span class="azul">{{ "login.create_account" | translate }}</span></ion-button>
 				<!-- <a href="/forgot" margin-bottom>Esqueceu sua senha?</a>
 				Ainda não tem uma conta?<a href="/register"> Cadastre-se aqui.</a> -->
 			</div>

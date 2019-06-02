@@ -11,6 +11,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { CalendarHeaderComponent } from './calendar-header/calendar-header.component';
 import { CalendarHeaderModule } from './calendar-header/calendar-header.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
       provide: DateAdapter,
       useFactory: adapterFactory
     }),
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule
   ],
   declarations: [CalendarPage]
 })

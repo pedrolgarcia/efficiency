@@ -3,7 +3,7 @@
 <ion-content padding-bottom padding-horizontal>
 
   <ion-card color="primary" margin-top>
-    <ion-card-header class="page-title" padding text-center>Relatório de erro</ion-card-header>
+    <ion-card-header class="page-title" padding text-center>{{ "error_report.title" | translate }}</ion-card-header>
 
     <form no-padding padding-bottom padding-horizontal [formGroup]="form" *ngFor="let form of errorReportForm;">
 
@@ -12,21 +12,21 @@
         <ion-input type="hidden" formControlName="id"></ion-input>
         <ion-row>
           <ion-col size="5" align-self-center>
-            <ion-label>Ocorrências: </ion-label>
+            <ion-label>{{ "error_report.ocurrences" | translate }}: </ion-label>
           </ion-col>
           <ion-col size="7" no-padding align-self-center>
             <app-input errorMessage="Preencha este campo com um número">
-              <ion-input type="number" formControlName="ocorrencias" placeholder="Digite o número de ocorrências"></ion-input>
+              <ion-input type="number" formControlName="ocorrencias" [placeholder]="'error_report.ocurrences_placeholder' | translate"></ion-input>
             </app-input>
           </ion-col>
         </ion-row>
 
         <ion-row>
           <ion-col size="5" align-self-center>
-            <ion-label>Tipo de erro: </ion-label>
+            <ion-label>{{ "error_report.error_type" | translate }}: </ion-label>
           </ion-col>
           <ion-col size="7" no-padding align-self-center>
-            <ion-select class="select" formControlName="tipo" cancelText="Cancelar" placeholder="Selecione o tipo" style="color: #98BDFF;">
+            <ion-select class="select" formControlName="tipo" cancelText="Cancelar" [placeholder]="'error_report.error_type_placeholder' | translate" style="color: #98BDFF;">
               <ion-select-option [value]="errorType?.id" *ngFor="let errorType of errorTypes">{{errorType?.error_type}}</ion-select-option>
             </ion-select>
           </ion-col>
@@ -34,25 +34,25 @@
 
         <ion-row>
           <ion-col size="5" align-self-center>
-            <ion-label>Tentativas de concerto: </ion-label>
+            <ion-label>{{ "error_report.fix" | translate }}: </ion-label>
           </ion-col>
           <ion-col size="7" no-padding align-self-center>
             <app-input errorMessage="Preencha este campo com um número">
-              <ion-input type="number" formControlName="tentativas" placeholder="Digite o número de tentativas"></ion-input>
+              <ion-input type="number" formControlName="tentativas" [placeholder]="'error_report.fix_placeholder' | translate"></ion-input>
             </app-input>
           </ion-col>
         </ion-row>
 
         <ion-row margin-top>
           <ion-col size="6">
-            <ion-label no-margin>Descobrimento:</ion-label>
+            <ion-label no-margin>{{ "error_report.discovered_at" | translate }}:</ion-label>
             <ion-input errorMessage="Campo obrigatório" style="border-bottom: 1px solid #3880ff;">
               <ion-datetime displayFormat="DD/MM/YYYY" formControlName="descobrimento" placeholder="dd/mm/yyyy"
                 doneText="Feito" cancelText="Cancelar" style="color: #3880ff;" no-padding></ion-datetime>
             </ion-input>
           </ion-col>
           <ion-col size="6">
-            <ion-label no-margin>Remoção:</ion-label>
+            <ion-label no-margin>{{ "error_report.removed_at" | translate }}:</ion-label>
               <ion-input style="border-bottom: 1px solid #3880ff;">
                 <ion-datetime displayFormat="DD/MM/YYYY" formControlName="remocao" placeholder="dd/mm/yyyy" doneText="Feito"
                   cancelText="Cancelar" style="color: #3880ff;" no-padding></ion-datetime>
@@ -60,38 +60,37 @@
           </ion-col>
         </ion-row>
         <ion-row margin-top>
-          <ion-textarea formControlName="descricao" rows="5" text-justify placeholder="Digite a descrição do erro" style="border: 1px solid #3880ff; border-radius: 10px;"></ion-textarea>
+          <ion-textarea formControlName="descricao" rows="5" text-justify [placeholder]="'error_report.description' | translate" style="border: 1px solid #3880ff; border-radius: 10px;"></ion-textarea>
         </ion-row>
       </ion-card-content>
       <ion-row padding-horizontal *ngIf="!form.get('id').value">
         <ion-col size="6">
           <ion-button color="success" size="default" (click)="save()" [disabled]="form.invalid" expand="block">
-            <ion-icon name="checkmark"></ion-icon><span>Salvar</span>
+            <ion-icon name="checkmark"></ion-icon><span>{{ "buttons.btn_save" | translate }}</span>
           </ion-button>
         </ion-col>
         <ion-col size="6">
           <ion-button type="reset" color="danger" size="default" expand="block">
-            <ion-icon name="close"></ion-icon><span>Limpar</span>
+            <ion-icon name="close"></ion-icon><span>{{ "buttons.btn_clear" | translate }}</span>
           </ion-button>
         </ion-col>
       </ion-row>
       <ion-row padding-horizontal *ngIf="form.get('id').value">
         <ion-col size="6">
           <ion-button color="warning" size="default" [disabled]="form.invalid" (click)="save()" expand="block">
-            <ion-icon name="create"></ion-icon><span>Editar</span>
+            <ion-icon name="create"></ion-icon><span>{{ "buttons.btn_edit" | translate }}</span>
           </ion-button>
         </ion-col>
         <ion-col size="6">
           <ion-button color="danger" (click)="delete(form.get('id').value)" size="default" expand="block">
-            <ion-icon name="trash"></ion-icon><span>Excluir</span>
+            <ion-icon name="trash"></ion-icon><span>{{ "buttons.btn_delete" | translate }}</span>
           </ion-button>
         </ion-col>
       </ion-row>
     </form>
       <ion-row padding-horizontal padding-bottom>
         <ion-col size="12" text-center>
-          <ion-button color="light" size="default" expand="block" (click)="newError()"><span class="azul">Novo
-              erro</span></ion-button>
+          <ion-button color="light" size="default" expand="block" (click)="newError()"><span class="azul">{{ "error_report.btn_new_error" | translate }}</span></ion-button>
         </ion-col>
       </ion-row>
       

@@ -4,6 +4,7 @@ import { SettingsService } from './settings.service';
 import { Settings } from './settings.model';
 import { AlertService } from '../shared/alert/alert.service';
 import { Router } from '@angular/router';
+import { LanguageService } from '../language.service';
 
 @Component({
   selector: 'app-settings',
@@ -21,7 +22,8 @@ export class SettingsPage implements OnInit {
     private formBuilder: FormBuilder,
     private alert: AlertService,
     private settingsService: SettingsService,
-    private router: Router
+    private router: Router,
+    private languageService: LanguageService
   ) { }
 
   ngOnInit() {
@@ -47,7 +49,10 @@ export class SettingsPage implements OnInit {
   save() {
     this.settingsService.saveSettings(this.settingsForm.value)
       .subscribe(response => {
-        this.settingsService.getSettings().subscribe(data => localStorage.setItem('settings', JSON.stringify(data)));
+        this.settingsService.getSettings().subscribe(data => {
+          localStorage.setItem('settings', JSON.stringify(data));
+          this.languageService.setAppLanguage();
+        });
         this.alert.header = response.success,
         this.alert.message = '';
         this.alert.buttons = [{

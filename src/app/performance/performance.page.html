@@ -3,21 +3,21 @@
 <ion-content padding-bottom padding-horizontal>
 
   <ion-card color="primary" margin-top>
-    <ion-card-header class="page-title" padding text-center>Desempenho</ion-card-header>
+    <ion-card-header class="page-title" padding text-center>{{ "performance.title" | translate }}</ion-card-header>
 
     <ion-card-content>
       <ion-slides style="height: 400px;" pager="true" [options]="slideOpts">
         <ion-slide>
           <div style="width: 100%;">
             <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">Cadastros</h1>
+              <h1 style="font-weight: bold;">{{ "performance.created" | translate }}</h1>
             </div>
             <div margin-bottom>
-              <ion-title>Projetos cadastrados</ion-title>
+              <ion-title>{{ "performance.projects_created" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ createdProjectsTasks?.projects }}</ion-button>
             </div>
             <div>
-              <ion-title>Tarefas cadastradas</ion-title>
+              <ion-title>{{ "performance.tasks_created" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ createdProjectsTasks?.tasks }}</ion-button>
             </div>
           </div>
@@ -25,14 +25,14 @@
         <ion-slide>
           <div style="width: 100%;">
             <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">Conclusões</h1>
+              <h1 style="font-weight: bold;">{{ "performance.conclusions" | translate }}</h1>
             </div>
             <div margin-bottom>
-              <ion-title>Projetos concluídos</ion-title>
+              <ion-title>{{ "performance.projects_concluded" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ completedProjectsTasks?.projects }}</ion-button>
             </div>
             <div>
-              <ion-title>Tarefas concluídas</ion-title>
+              <ion-title>{{ "performance.tasks_concluded" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ completedProjectsTasks?.tasks }}</ion-button>
             </div>
           </div>
@@ -40,14 +40,14 @@
         <ion-slide>
           <div style="width: 100%;">
             <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">Atrasos</h1>
+              <h1 style="font-weight: bold;">{{ "performance.delays" | translate }}</h1>
             </div>
             <div margin-bottom>
-              <ion-title>Projetos atrasados</ion-title>
+              <ion-title>{{ "performance.projects_delayed" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ overdueProjectsTasks?.projects }}</ion-button>
             </div>
             <div>
-              <ion-title>Tarefas atrasadas</ion-title>
+              <ion-title>{{ "performance.tasks_delayed" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ overdueProjectsTasks?.tasks }}</ion-button>
             </div>
           </div>
@@ -55,10 +55,10 @@
         <ion-slide>
           <div style="width: 100%;">
             <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">Erros</h1>
+              <h1 style="font-weight: bold;">{{ "performance.errors" | translate }}</h1>
             </div>
             <div margin-bottom>
-              <ion-title>Quantidade de erros gerados</ion-title>
+              <ion-title>{{ "performance.errors_generated" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ errors?.errors }}</ion-button>
             </div>
             <!--<div margin-bottom>
@@ -66,7 +66,7 @@
               <ion-button color="light" fill="outline">4</ion-button>            
             </div>-->
             <div>
-              <ion-title>Média de erros por tarefa</ion-title>
+              <ion-title>{{ "performance.errors_averages" | translate }}</ion-title>
               <ion-button color="light" fill="outline">{{ errors?.average }}</ion-button>
             </div>
           </div>
@@ -74,11 +74,11 @@
         <ion-slide>
           <div style="width: 100%;">
             <div margin-bottom padding-bottom>
-              <h1 style="font-weight: bold;">Erros por tipo</h1>
+              <h1 style="font-weight: bold;">{{ "performance.errors_type" | translate }}</h1>
             </div>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Erros de compilação</ion-title>
+                <ion-title>{{ "performance.errors_compilation" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ errors?.compilation }}</ion-button>
@@ -86,7 +86,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Erros de sintaxe</ion-title>
+                <ion-title>{{ "performance.errors_sintax" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ errors?.syntax }}</ion-button>
@@ -94,7 +94,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Erros de semântica</ion-title>
+                <ion-title>{{ "performance.errors_semantic" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ errors?.semantics }}</ion-button>
@@ -102,7 +102,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Erros de lógica</ion-title>
+                <ion-title>{{ "performance.errors_logic" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ errors?.logic }}</ion-button>
@@ -110,7 +110,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Erros de planejamento</ion-title>
+                <ion-title>{{ "performance.errors_planning" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ errors?.planning }}</ion-button>
@@ -121,11 +121,11 @@
         <ion-slide style="height: 450px;">
           <div style="width: 100%;">
             <div margin-bottom>
-              <h1 style="font-weight: bold;">Tarefa por categoria</h1>
+              <h1 style="font-weight: bold;">{{ "performance.tasks_category" | translate }}</h1>
             </div>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Tarefas de modelagem</ion-title>
+                <ion-title>{{ "performance.tasks_modeling" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ tasksByCategory?.modeling }}</ion-button>
@@ -133,7 +133,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Tarefas de documentação</ion-title>
+                <ion-title>{{ "performance.tasks_documentation" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ tasksByCategory?.documentation }}</ion-button>
@@ -141,7 +141,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Tarefas de programação</ion-title>
+                <ion-title>{{ "performance.tasks_programming" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ tasksByCategory?.programming }}</ion-button>
@@ -149,7 +149,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Tarefas de design</ion-title>
+                <ion-title>{{ "performance.tasks_design" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ tasksByCategory?.design }}</ion-button>
@@ -157,7 +157,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Tarefas de teste</ion-title>
+                <ion-title>{{ "performance.tasks_test" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ tasksByCategory?.test }}</ion-button>
@@ -165,7 +165,7 @@
             </ion-row>
             <ion-row>
               <ion-col size="9" align-self-center>
-                <ion-title>Outras tarefas</ion-title>
+                <ion-title>{{ "performance.tasks_other" | translate }}</ion-title>
               </ion-col>
               <ion-col size="3">
                 <ion-button color="light" fill="outline">{{ tasksByCategory?.other }}</ion-button>

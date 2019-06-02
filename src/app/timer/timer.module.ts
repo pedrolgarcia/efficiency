@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TimerPage } from './timer.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: TimerPage }
@@ -19,7 +20,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule
   ],
   declarations: [TimerPage]
 })

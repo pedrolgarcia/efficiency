@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TaskEditPage } from './task-edit.page';
 import { SharedModule } from '../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: TaskEditPage }
@@ -19,7 +20,8 @@ const routes: Routes = [
     ReactiveFormsModule,
     IonicModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule
   ],
   declarations: [TaskEditPage]
 })

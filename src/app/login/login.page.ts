@@ -7,6 +7,7 @@ import { AuthService } from './auth.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AlertService } from '../shared/alert/alert.service';
 import { Regex } from '../regex';
+import { LanguageService } from '../language.service';
 
 @Component({
   selector: 'app-login',

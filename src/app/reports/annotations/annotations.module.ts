@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { AnnotationsPage } from './annotations.page';
 import { SharedModule } from '../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: AnnotationsPage }
@@ -19,7 +20,8 @@ const routes: Routes = [
     IonicModule,
     ReactiveFormsModule,
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    TranslateModule
   ],
   declarations: [AnnotationsPage]
 })

@@ -8,6 +8,9 @@ import { SettingsService } from './settings/settings.service';
 import { Settings } from './settings/settings.model';
 import { Router, NavigationEnd } from '@angular/router';
 import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
+import { LanguageService } from './language.service';
+import { TranslateService } from '@ngx-translate/core';
+import { BASE_BACKEND } from './app.api';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +18,16 @@ import { LocalNotifications } from '@ionic-native/local-notifications/ngx';
 })
 export class AppComponent implements OnInit {
   public appPages = [
-    { title: 'Meu feed', url: '/', icon: 'home' },
-    { title: 'Cadastrar Projeto', url: '/project-create', icon: 'clipboard' },
-    { title: 'Cadastrar Tarefa', url: '/task-create', icon: 'filing' },
-    { title: 'Calendário', url: '/calendar', icon: 'calendar' },
-    { title: 'Desempenho', url: '/performance', icon: 'stats' },
-    { title: 'Cronômetro', url: '/timer', icon: 'time' },
-    { title: 'Anotações', url: '/annotations', icon: 'bookmarks' },
-    { title: 'Editar Usuário', url: '/profile-edit', icon: 'person' },
-    { title: 'Configurações', url: '/settings', icon: 'settings' },
-    { title: 'Sair', url: '/login', icon: 'log-out' },
+    { title: 'feed.title', url: '/', icon: 'home' },
+    { title: 'create_project.title', url: '/project-create', icon: 'clipboard' },
+    { title: 'create_task.title', url: '/task-create', icon: 'filing' },
+    { title: 'calendar.title', url: '/calendar', icon: 'calendar' },
+    { title: 'performance.title', url: '/performance', icon: 'stats' },
+    { title: 'timer.title', url: '/timer', icon: 'time' },
+    { title: 'annotation.title', url: '/annotations', icon: 'bookmarks' },
+    { title: 'edit_user.title', url: '/profile-edit', icon: 'person' },
+    { title: 'settings.title', url: '/settings', icon: 'settings' },
+    { title: 'logout.title', url: '/login', icon: 'log-out' },
   ];
 
   settings: Settings;
@@ -36,7 +39,9 @@ export class AppComponent implements OnInit {
     private authService: AuthService,
     private settingsService: SettingsService,
     private router: Router,
-    private localNotifications: LocalNotifications
+    private localNotifications: LocalNotifications,
+    private languageService: LanguageService,
+    private translate: TranslateService
   ) {
     this.initializeApp();
 
@@ -50,7 +55,7 @@ export class AppComponent implements OnInit {
       title: 'Dicas',
       text: 'Dicas',
       trigger: {at: new Date(new Date().getTime() + 1)},
-      icon: 'http://example.com/icon.png',
+      icon: `${BASE_BACKEND}/icon.png`,
       data: { secret: 'Local Notification' }
     });
   }
@@ -60,7 +65,10 @@ export class AppComponent implements OnInit {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+
+      this.languageService.setAppLanguage();
     });
+
 
   }
 

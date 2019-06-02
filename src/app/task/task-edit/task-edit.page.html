@@ -3,26 +3,26 @@
 <ion-content padding-bottom padding-horizontal>
 
   <ion-card color="primary" margin-top>
-    <ion-card-header class="page-title" padding text-center>Editar Tarefa</ion-card-header>
+    <ion-card-header class="page-title" padding text-center>{{ "create_task.title_edit" | translate }}</ion-card-header>
 
     <form no-padding padding-bottom padding-horizontal [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
       <ion-row>
         <ion-col size="4" align-self-center>
-          <ion-label>Nome: </ion-label>
+          <ion-label>{{ "create_task.name" | translate }}: </ion-label>
         </ion-col>
         <ion-col size="8" no-padding>
           <app-input errorMessage="O nome é obrigatório e deve contar apenas letras">
-            <ion-input type="text" formControlName="nome" placeholder="Digite o nome"></ion-input>
+            <ion-input type="text" formControlName="nome" [placeholder]="'create_task.name_placeholder' | translate"></ion-input>
           </app-input>
         </ion-col>
       </ion-row>
 
       <ion-row>
         <ion-col size="4" align-self-center>
-          <ion-label>Categoria: </ion-label>
+          <ion-label>{{ "create_task.category" | translate }}: </ion-label>
         </ion-col>
         <ion-col size="8" no-padding align-self-center>
-          <ion-select class="select" formControlName="categoria" cancelText="Cancelar" placeholder="Selecione a categoria">
+          <ion-select class="select" formControlName="categoria" cancelText="Cancelar" [placeholder]="'create_task.category_placeholder' | translate">
             <ion-select-option *ngFor="let category of categories" [value]="category?.id">{{ category?.category }}</ion-select-option>
           </ion-select>
         </ion-col>
@@ -30,10 +30,10 @@
 
       <ion-row>
         <ion-col size="4" align-self-center>
-          <ion-label>Projeto: </ion-label>
+          <ion-label>{{ "create_task.project" | translate }}: </ion-label>
         </ion-col>
         <ion-col size="8" no-padding align-self-center>
-          <ion-select class="select" formControlName="projeto" cancelText="Cancelar" placeholder="Selecione o projeto">
+          <ion-select class="select" formControlName="projeto" cancelText="Cancelar" [placeholder]="'create_task.project_placeholder' | translate">
             <ion-select-option *ngFor="let project of projects" [value]="project?.id">{{ project?.name }}</ion-select-option>
           </ion-select>
         </ion-col>
@@ -41,13 +41,13 @@
 
       <ion-row margin-top>
           <ion-col size="6">
-            <ion-label no-margin>Data de Início:</ion-label>
+            <ion-label no-margin>{{ "create_task.start_date" | translate }}:</ion-label>
             <app-input errorMessage="Data inicial é obrigatória" style="border-bottom: 1px solid #fff;">
               <ion-datetime displayFormat="DD/MM/YYYY" formControlName="inicio" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
             </app-input>
           </ion-col>
           <ion-col size="6">
-            <ion-label no-margin>Data de Entrega:</ion-label>
+            <ion-label no-margin>{{ "create_task.end_date" | translate }}:</ion-label>
             <app-input errorMessage="Data de entrega é obrigatória" style="border-bottom: 1px solid #fff;">
               <ion-datetime displayFormat="DD/MM/YYYY" formControlName="entrega" placeholder="dd/mm/yyyy" doneText="Feito" cancelText="Cancelar" style="color: #fff;" no-padding></ion-datetime>
             </app-input>
@@ -57,19 +57,19 @@
       <ion-card-content class="project-card-content" padding margin-top>
         <ion-row>
           <app-input errorMessage="Descrição é obrigatória">
-            <ion-textarea formControlName="descricao" rows="5" text-justify placeholder="Digite a descrição da tarefa"></ion-textarea>
+            <ion-textarea formControlName="descricao" rows="5" text-justify [placeholder]="'create_task.description' | translate"></ion-textarea>
           </app-input>
         </ion-row>
       </ion-card-content>
       <ion-row padding-top>
         <ion-col size="6">
           <ion-button type="submit" [disabled]="editTaskForm.invalid" color="success" size="default" expand="block">
-            <ion-icon name="checkmark"></ion-icon><span>Editar</span>
+            <ion-icon name="checkmark"></ion-icon><span>{{ "buttons.btn_edit" | translate }}</span>
           </ion-button>
         </ion-col>
         <ion-col size="6">
           <ion-button type="reset" color="danger" size="default" expand="block">
-            <ion-icon name="close"></ion-icon><span>Limpar</span>
+            <ion-icon name="close"></ion-icon><span>{{ "buttons.btn_clear" | translate }}</span>
           </ion-button>
         </ion-col>
       </ion-row>

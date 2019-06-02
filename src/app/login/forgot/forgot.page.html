@@ -1,15 +1,15 @@
 <ion-grid>
 	<ion-row padding justify-content-center>
     <ion-col align-self-center text-center>
-      <h1 class="page-title" padding-bottom>Esqueceu sua senha?</h1>
-      <p>Um e-mail será enviado para você para que possa visualizar sua senha.</p>
+      <h1 class="page-title" padding-bottom>{{ "forgot.title" | translate }}</h1>
+      <p>{{ "forgot.text" | translate }}</p>
       <form padding [formGroup]="forgotForm">
         <ion-item style="margin-bottom: 40px;">
           <ion-icon name="person"></ion-icon>
-          <ion-input type="text" formControlName="email" placeholder="Digite seu e-mail"></ion-input>
+          <ion-input type="text" formControlName="email" [placeholder]="'forgot.email_placeholder' | translate }}></ion-input>
         </ion-item>
-        <ion-button size="default" expand="block" color="light" margin-vertical><span class="azul">Enviar e-mail</span></ion-button>
-        <ion-button size="default" expand="block" color="light" [routerLink]="[ '/login' ]"><span class="azul">Cancelar</span></ion-button>
+        <ion-button size="default" expand="block" color="light" margin-vertical><span class="azul">{{ "forgot.btn_send_email" | translate }}</span></ion-button>
+        <ion-button size="default" expand="block" color="light" [routerLink]="[ '/login' ]"><span class="azul">{{ "buttons.btn_cancel" | translate }}</span></ion-button>
       </form>
     </ion-col>
   </ion-row>   

@@ -3,17 +3,17 @@
 <ion-content padding-bottom padding-horizontal>
 
   <ion-card color="primary" margin-top>
-    <ion-card-header class="page-title" padding text-center>Relatórios</ion-card-header>
+    <ion-card-header class="page-title" padding text-center>{{ "reports.title" | translate }}</ion-card-header>
 
     <ion-card-content style="height: 400px;">
       <ion-row justify-content-center margin-bottom>
-        <ion-button color="light" size="default" expand="block" style="width: 80%;" (click)="goToAnnotation()"><span class="azul">Anotações</span></ion-button>    
+        <ion-button color="light" size="default" expand="block" style="width: 80%;" (click)="goToAnnotation()"><span class="azul">{{ "reports.annotations" | translate }}</span></ion-button>    
       </ion-row>
       <ion-row justify-content-center margin-bottom>
-        <ion-button color="light" size="default" expand="block" style="width: 80%;" (click)="goToTimeReport()"><span class="azul">Relatório de tempo</span></ion-button>    
+        <ion-button color="light" size="default" expand="block" style="width: 80%;" (click)="goToTimeReport()"><span class="azul">{{ "reports.time_report" | translate }}</span></ion-button>    
       </ion-row>
       <ion-row justify-content-center margin-bottom>
-        <ion-button color="light" size="default" expand="block" style="width: 80%;" (click)="goToErrorReport()"><span class="azul">Relatório de erro</span></ion-button>    
+        <ion-button color="light" size="default" expand="block" style="width: 80%;" (click)="goToErrorReport()"><span class="azul">{{ "reports.error_report" | translate }}</span></ion-button>    
       </ion-row>
       
     </ion-card-content>

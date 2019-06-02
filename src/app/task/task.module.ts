@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { TaskPage } from './task.page';
 import { SharedModule } from '../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: TaskPage }
@@ -18,7 +19,8 @@ const routes: Routes = [
     FormsModule,
     IonicModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   declarations: [TaskPage]
 })

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { ProfileEditPage } from './profile-edit.page';
 import { SharedModule } from '../../shared/shared.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [
   { path: '', component: ProfileEditPage }
@@ -19,7 +20,8 @@ const routes: Routes = [
     IonicModule,
     ReactiveFormsModule,
     RouterModule.forChild(routes),
-    SharedModule
+    SharedModule,
+    TranslateModule
   ],
   declarations: [ProfileEditPage]
 })
