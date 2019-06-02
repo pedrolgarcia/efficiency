@@ -55,7 +55,8 @@ export class AppComponent implements OnInit {
       title: 'Dicas',
       text: 'Dicas',
       trigger: {at: new Date(new Date().getTime() + 1)},
-      icon: `${BASE_BACKEND}/icon.png`,
+      icon: `${BASE_BACKEND}/image/icons/tips.png`,
+      smallIcon: `${BASE_BACKEND}/image/logo.png`,
       data: { secret: 'Local Notification' }
     });
   }
