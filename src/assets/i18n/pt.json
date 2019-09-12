@@ -207,7 +207,8 @@
         "language_placeholder": "Selecione o idioma",
         "tips": "Dicas",
         "theme": "Tema",
-        "theme_placeholder": "Selecione o tema"
+        "theme_placeholder": "Selecione o tema",
+        "resume": "O Efficiency é um aplicativo baseado no conceito do Personal Software Process - desenvolvido por Watts Humphrey como uma porta de entrada para as metodologias de desenvolvimento, para aqueles que desejam melhorar sua eficiência."
     },
     "logout": {
         "title": "Sair"

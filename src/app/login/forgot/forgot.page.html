@@ -6,7 +6,7 @@
       <form padding [formGroup]="forgotForm">
         <ion-item style="margin-bottom: 40px;">
           <ion-icon name="person"></ion-icon>
-          <ion-input type="text" formControlName="email" [placeholder]="'forgot.email_placeholder' | translate }}></ion-input>
+          <ion-input type="text" formControlName="email" [placeholder]="'forgot.email_placeholder' | translate"></ion-input>
         </ion-item>
         <ion-button size="default" expand="block" color="light" margin-vertical><span class="azul">{{ "forgot.btn_send_email" | translate }}</span></ion-button>
         <ion-button size="default" expand="block" color="light" [routerLink]="[ '/login' ]"><span class="azul">{{ "buttons.btn_cancel" | translate }}</span></ion-button>

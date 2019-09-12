@@ -207,7 +207,8 @@
         "language_placeholder": "Select language",
         "tips": "Tips",
         "theme": "Theme",
-        "theme_placeholder": "Select theme"
+        "theme_placeholder": "Select theme",
+        "resume": "Efficiency is an application based on the Personal Software Process concept - developed by Watts Humphrey as a gateway to development methodologies for those who wish to improve their efficiency."
     },
     "logout": {
         "title": "Logout"
